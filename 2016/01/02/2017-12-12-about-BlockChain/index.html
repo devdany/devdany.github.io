@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>BlockChain이란?? | Dany&#39;s Development</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="블럭체인?블럭체인을 이해하기 가장 쉬운 예를 들어보자. 철수가 영희에게 돈 10000원을 송금했다. 그리고 철수, 영희 둘다 이 사실을 각자의 은행 입출금 내역에서 확인 할 수 있을 것이다. 그런데 이 정보는 어디에 저장되어 있기에 철후가 영희에게 10000원을 보낸 사실을 알 수 있는걸까? 정확히 어디인지는 몰라도, 은행 시스템 서버 어딘가에 입출금 내역">
+<meta name="keywords" content="BlockChain">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BlockChain이란??">
+<meta property="og:url" content="https://devdany.github.io/2016/01/02/2017-12-12-about-BlockChain/index.html">
+<meta property="og:site_name" content="Dany&#39;s Development">
+<meta property="og:description" content="블럭체인?블럭체인을 이해하기 가장 쉬운 예를 들어보자. 철수가 영희에게 돈 10000원을 송금했다. 그리고 철수, 영희 둘다 이 사실을 각자의 은행 입출금 내역에서 확인 할 수 있을 것이다. 그런데 이 정보는 어디에 저장되어 있기에 철후가 영희에게 10000원을 보낸 사실을 알 수 있는걸까? 정확히 어디인지는 몰라도, 은행 시스템 서버 어딘가에 입출금 내역">
+<meta property="og:image" content="https://news.samsung.com/kr/wp-content/uploads/2017/06/3-4.png">
+<meta property="og:updated_time" content="2017-12-12T16:14:05.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BlockChain이란??">
+<meta name="twitter:description" content="블럭체인?블럭체인을 이해하기 가장 쉬운 예를 들어보자. 철수가 영희에게 돈 10000원을 송금했다. 그리고 철수, 영희 둘다 이 사실을 각자의 은행 입출금 내역에서 확인 할 수 있을 것이다. 그런데 이 정보는 어디에 저장되어 있기에 철후가 영희에게 10000원을 보낸 사실을 알 수 있는걸까? 정확히 어디인지는 몰라도, 은행 시스템 서버 어딘가에 입출금 내역">
+<meta name="twitter:image" content="https://news.samsung.com/kr/wp-content/uploads/2017/06/3-4.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Dany&#39;s Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>010-2290-7387</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span>dayong7387@gmail.com</span></li>
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <!--<a class="site-logo" href="/" id="logo">Dany&#39;s Development</a>-->
+
+        <a class="site-logo" href="/">
+            <!--<img src="/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">-->
+            <h1>Logo</h1>
+        </a>
+
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation pull-right font-transform-inherit">
+            <ul>
+                
+                <li class="">
+                    <a href="/">Home</a>
+                </li>
+                
+                <li class="">
+                    <a href="/projects/">Projects</a>
+                </li>
+                
+                <li class="">
+                    <a href="/archives/">Blog</a>
+                </li>
+                
+                <li class="">
+                    <a href="/about/">About</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- END NAVIGATION -->
+    </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/2016/01/02/2017-12-12-about-BlockChain/">BlockChain이란??</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-2017-12-12-about-BlockChain" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> dany</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2016-01-01T15:00:00.000Z" itemprop="datePublished">2016/01/02</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-comments"></i>
+	  <a href="https://devdany.github.io/2016/01/02/2017-12-12-about-BlockChain/#disqus_thread" class="article-comment-link">Comments</a>
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/tags/BlockChain/" title="BlockChain">BlockChain</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/categories/BlockChain/">BlockChain</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="블럭체인"><a href="#블럭체인" class="headerlink" title="블럭체인?"></a>블럭체인?</h2><p>블럭체인을 이해하기 가장 쉬운 예를 들어보자.</p>
+<p>철수가 영희에게 돈 10000원을 송금했다. 그리고 철수, 영희 둘다 이 사실을 각자의 은행 입출금 내역에서 확인 할 수 있을 것이다.</p>
+<p>그런데 이 정보는 어디에 저장되어 있기에 철후가 영희에게 10000원을 보낸 사실을 알 수 있는걸까? 정확히 어디인지는 몰라도, 은행 시스템 서버 어딘가에 입출금 내역이 기록되어 있으리란 것을 추측할 수 있다.</p>
+<p>즉, <strong>은행서버가 중앙 관리자가 되어 모든 사용자의 입출금내역을 기록하고 이를 당사자에게 보여준다.</strong></p>
+<p>이 다음부터는, 좀더 이해하기 쉽도록 하기 위해 프로그램적인 이야기를 잠시 배제 하겠다.</p>
+<p>이 입출금내역은 <strong>장부</strong>라고 봐도 무방할 것이다. 즉, 이 모든것을 관리하는 관리자가 입출금이 한번 발생할 때마다 해당 내용을 장부에 적고 당사자들에게 알려준다.</p>
+<p>지금까지는 기존의 서버 구성의 이야기 였다. 이제 블록체인 네트워크를 이야기 해보려고 한다.</p>
+<p>마찬가지로, 철수가 영희에게 돈 10000원을 송금했다. 그러자, <strong>평소 금전관계에 관심이 많은 철수와 영희 같은반 친구들은, 철수가 정상적으로 돈을 보낼 수 있는지 확인을 하고,</strong> ( 예를들어 통장에 만원이 없는데 만원을 보내려고 하면 문제가 있는 것이다. ) <strong>이상이 없음을 확인 한 다음 모두 다 각자 자신의 장부에 철수가 영희에게 10000원을 보냈다는 사실을 기록했다.</strong></p>
+<p>이에, 옆반 민수도, 선생님도 모두 철수가 영희에게 돈 10000원을 주었다는 사실을 알게 되었다.</p>
+<p>그런데 철수는 욕심이 생겼다. 갑자기 옆반 민수가 2만원 짜리 로보트를 만원에 판다는 것이 아닌가!</p>
+<p>그래서 철수는, 몰래 영희의 장부를 뒤져 철수가 영희에게 만원을 송금한 사실을 지우고 민수에게 만원을 송금한 것으로 고쳐적었다.</p>
+<p>하지만, <strong>이미 반 친구들은 모두 철수가 영희에게 이미 만원을 주었다는 것을 각자의 장부를 확인하여 알고있고, 돈을 써버려서 민수에게 만원을 줄 수 없는 상태임을 함께 확인하였다.</strong></p>
+<p>결국, 이 철수의 주작음모는 실패로 돌아가고 말았다.</p>
+<p>이것이 바로 <strong>블럭체인</strong>의 원리이다.</p>
+<p>이제 본격적적으로 이해해 보자.</p>
+<p><img src="https://news.samsung.com/kr/wp-content/uploads/2017/06/3-4.png" alt="Alt text"></p>
+<p>위 철수와 영희의 이야기를 제대로 이해 했다면, 이 그림을 이해하기에는 무리가 없을것이라고 생각한다.
+A / B 는 철수와 영희, 블록은 철수가 영희에게 만원을 보내려고 한다는 사실(정상 블록)과 이미 영희에게 돈을 줘버린 철수가 민수에게 만원을 송금하려는 사실(비정상 블록)이며,
+함께 장부를 적은 반 친구들은 노드들이다. 5번 그림의 ‘체인에 등록’ 한다는 이야기는, 일단 각자 지신의 장부에 해당 내용을 적는 것으로 이해하자.</p>
+<h2 id="기존의-블럭체인-현재까지의-블럭체인"><a href="#기존의-블럭체인-현재까지의-블럭체인" class="headerlink" title="기존의 블럭체인 / 현재까지의 블럭체인"></a>기존의 블럭체인 / 현재까지의 블럭체인</h2><p>블럭체인 기술을 실제로 구현해 놓은것이 바로 지금 광풍이 불고있는 <strong>비트코인</strong>이다. 즉, 1세대 블럭체인 기술의 구현체인 셈이다.</p>
+<p>이 비트코인은 하나의 <strong>화폐</strong> 로서 블럭체인기술을 사용하였고, 신뢰성과 안정성(기술적으로)을 확보하며 교환가치를 얻게 되었다.(현재까지는 투기 가치가 훨씬 높아져 버렸지만)</p>
+<p>아무튼, 이 블록체인기술의 구현은 이 비트코인에서 멈추지 않았으니…</p>
+<p>여기서 한번쯤 들어봤을지도 모르는 <strong>SmartContract</strong> 라는 개념이 이제 이 블럭체인기술을 만나 꽃을 피우고 있다.</p>
+<p>이 SmartContract를 이해하기 위해서, 잠시 과거로 거슬러 올라가야 할 필요가 있다.</p>
+<p>SmartContract 1994년 이미 등장한 개념으로, 계약서를 디지털 명령으로 작성할 수 있다는 내용이었다. 이 디지털로 된 계약서는 조건 및 그에 따른 이행이 명확하기 때문에 디지털로 계약을 처리하면 훨씬 일처리가 간편해 질 것이라는 내용이었다.</p>
+<p>하지만 디지털로 된 내용들은 조작 및 복제가 너무 쉬웠기때문에 SmartContract는 오랫동안 주목을 받지 못했다.</p>
+<p><strong><em>감이 좀 오는가?</em></strong></p>
+<p>아까 철수와 영희네 반 친구들이 적었던 장부를 생각해보자. 이 장부대신에 조금더 복잡한 내용을 집어넣어 계약서를 쓰고 이전과 동일한 프로세스를 거친다면?</p>
+<p>위에서 언급한 약점을 극복하고 SmartContract가 드디어 세상에서 빛을 볼 수 있게 된 것이다!</p>
+<p>이 아이디어를 가지고 세상에 내놓은 블록체인이 있었으니 현재 굳건한 2위자리를 지키고 있는 <strong>이더리움</strong> 이다.</p>
+<p>이 이더리움 블럭체인에서는 단순의 이 블럭체인이 화폐뿐 아니라 각종 스마트컨트랙트를 활용한 애플리케이션으로 구현될 수 있다.</p>
+<p>이것을 우리는 <strong>dApp</strong>이라고 부른다.</p>
+<p>현재, 이더리움의 뒤를 이어 EOS, NEM 등 다양한 블럭체인 코어가 개발되고 있으며, 이들은 대부분 스마트컨트랙트를 지원하고 있다.</p>
+<p>이에 현재로서는 Ethereum / NEM 을 활용하는 포스팅을 계속 써나갈 예정이며, 앞으로 나오는 EOS등에 대해서도 관심을 갖고 개발해 볼 생각이다.</p>
+
+      
+    </div>
+  </div>
+  
+    
+  
+  <br>
+</article>
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/categories/BlockChain/">BlockChain (1)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BlockChain/"><i class='fa fa-tags'></i>BlockChain</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+  <!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col">
+                <h2>About Me</h2>
+                <p>Web / Server / BlockChain</p>
+            </div>
+            <!-- END BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col">
+
+            </div>
+            <!-- BEGIN BOTTOM CONTACTS -->
+            <div class="col-md-4 col-sm-6 pre-footer-col">
+                <h2>Contact</h2>
+                <address class="margin-bottom-40">
+                    Phone: 010-2290-7387<br>
+                    Email: <a href="mailto:dayong7387@gmail.com">dayong7387@gmail.com</a><br>
+                </address>
+            </div>
+            <!-- END BOTTOM CONTACTS -->
+
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6 padding-top-10">
+                &copy; 2017 Dany&#39;s Development
+            </div>
+            <!-- END COPYRIGHT -->
+            <!-- BEGIN SOCIAL -->
+<div class="col-md-6 col-sm-6">
+  <ul class="social-footer list-unstyled list-inline pull-right">
+    
+      <li><a href="https://github.com/devdany"><i class="fa fa-github"></i></a></li>
+    
+  </ul>  
+</div>
+<!-- END SOCIAL -->
+
+        </div>
+    </div>
+</div>
+<!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/js/wow.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+<script>
+  
+    var disqus_config = function () {
+      this.page.url = 'https://devdany.github.io/2016/01/02/2017-12-12-about-BlockChain/';
+    };
+  
+  (function() {  // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//dany.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<script id="dsq-count-scr" src="//dany.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
