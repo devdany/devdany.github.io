@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ethereum이란? | Dany&#39;s Development</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="이더리움?이더리움은 비트코인이후로 마찬가지의 블록체인 기반의 가상화폐입니. 하지만 전에 쓴것과 같이 이더리움 네트워크의 노드는 비트코인과 달리 스마트 컨트랙트가 포함되죠. 지금부터 본격적으로 이더리움 스마트컨트랙트 개발에 대해서 파해쳐보겠습니다. 그래서 이 이더리움 네트워크에서의 스마트 컨트랙트를 사용한 dApp 개발을 하기 위해서는 사실 당연한 이야기지만">
+<meta name="keywords" content="BlockChain,Ethereum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ethereum이란?">
+<meta property="og:url" content="https://devdany.github.io/2017/12/14/2017-12-14-about-Ehereum/index.html">
+<meta property="og:site_name" content="Dany&#39;s Development">
+<meta property="og:description" content="이더리움?이더리움은 비트코인이후로 마찬가지의 블록체인 기반의 가상화폐입니. 하지만 전에 쓴것과 같이 이더리움 네트워크의 노드는 비트코인과 달리 스마트 컨트랙트가 포함되죠. 지금부터 본격적으로 이더리움 스마트컨트랙트 개발에 대해서 파해쳐보겠습니다. 그래서 이 이더리움 네트워크에서의 스마트 컨트랙트를 사용한 dApp 개발을 하기 위해서는 사실 당연한 이야기지만">
+<meta property="og:updated_time" content="2017-12-15T14:04:21.839Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ethereum이란?">
+<meta name="twitter:description" content="이더리움?이더리움은 비트코인이후로 마찬가지의 블록체인 기반의 가상화폐입니. 하지만 전에 쓴것과 같이 이더리움 네트워크의 노드는 비트코인과 달리 스마트 컨트랙트가 포함되죠. 지금부터 본격적으로 이더리움 스마트컨트랙트 개발에 대해서 파해쳐보겠습니다. 그래서 이 이더리움 네트워크에서의 스마트 컨트랙트를 사용한 dApp 개발을 하기 위해서는 사실 당연한 이야기지만">
+  
+    <link rel="alternative" href="/atom.xml" title="Dany&#39;s Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>010-2290-7387</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span>dayong7387@gmail.com</span></li>
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <!--<a class="site-logo" href="/" id="logo">Dany&#39;s Development</a>-->
+
+        <a class="site-logo" href="/">
+            <!--<img src="/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">-->
+            <h1>Logo</h1>
+        </a>
+
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation pull-right font-transform-inherit">
+            <ul>
+                
+                <li class="">
+                    <a href="/">Home</a>
+                </li>
+                
+                <li class="">
+                    <a href="/projects/">Projects</a>
+                </li>
+                
+                <li class="">
+                    <a href="/archives/">Blog</a>
+                </li>
+                
+                <li class="">
+                    <a href="/about/">About</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- END NAVIGATION -->
+    </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/2017/12/14/2017-12-14-about-Ehereum/">Ethereum이란?</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-2017-12-14-about-Ehereum" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> dany</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2017-12-13T15:00:00.000Z" itemprop="datePublished">2017/12/14</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/tags/BlockChain/" title="BlockChain">BlockChain</a>,
+  
+    <a href="/tags/Ethereum/" title="Ethereum">Ethereum</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Categories:
+    <a class="article-category-link" href="/categories/BlockChain/">BlockChain</a>, <a class="article-category-link" href="/categories/BlockChain/Ethereum/">Ethereum</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="이더리움"><a href="#이더리움" class="headerlink" title="이더리움?"></a>이더리움?</h2><p>이더리움은 비트코인이후로 마찬가지의 블록체인 기반의 가상화폐입니. 하지만 전에 쓴것과 같이 이더리움 네트워크의 노드는 비트코인과 달리 스마트 컨트랙트가 포함되죠.</p>
+<p>지금부터 본격적으로 이더리움 스마트컨트랙트 개발에 대해서 파해쳐보겠습니다.</p>
+<p>그래서 이 이더리움 네트워크에서의 스마트 컨트랙트를 사용한 dApp 개발을 하기 위해서는 사실 당연한 이야기지만, 우선 내가 <strong>노드</strong>가 되어야 합니다. 최소한, 노드와 통신하며 데이터를 주고받 을 수는 있어야 할 것입니다.</p>
+<p>여기서 다시한번 상기해야 할 것은, 블럭체인은 분명 네트워크이고 통신또한 하지만, 중앙 서버가 없는 P2P 방식이라는 점을 잊어서는 안됩니다.</p>
+<p>때문에 기존의 서버 프로그래밍에서 쓰던 용어인 <em>request</em> / <em>response</em> 라는 말이 어울리지 않죠. 때문에, 블럭체인 네트워크에서는 클라이언트와 네트워크가 데이터를 주고받는 행위를 <strong>트랜잭션</strong>을 발생시킨다고 합니다.</p>
+<p>즉, 클라이언트가 발생시킨 <strong>트랜잭션</strong>이 다음에 생성되는 블럭에 포함되고 이 블럭이 정상적으로 체인에 연결된 되면, 모든 노드에 블럭정보가 import되고 이 정보는 모든 노드에 동기화되는 것입니다.</p>
+<p>현재 etherscan이라는 웹사이트에서 이 이더리움 네트워크 블럭 정보를 확인할 수 있는데, 현재 약 470만개 정도의 블럭이 체인에 연결되어 있습니다.</p>
+<p>이 470만개의 블록이 가진 데이터의 양이 얼마나 될까요? 물론 블럭체인이 가지는 기술적인 방식으로 그 양을 최대한 가볍게 해서 연결하고는 있지만, 그렇다 하더라도 제 경험상 30기가바이트 정도는 되어야 <strong>full노드</strong>가 됩니다.(full노드란, 네트워크의 1번부터 현재까지의 모든 블럭정보가 import되어 동기화가 된 노드를 말합니다.)</p>
+<p>블럭체인 네트워크에서의 모든 정보(account, balance, transaction ..)는 전부 이 노드에 연결되어 있는데, 그렇다면 dApp이 정상적으로 기능하기 위해서는 이 앱이 노드가 되어야 하고, 그러면 최소한 30기가바이트 분량의 데이터가 앱에 저장되어야 한다는 이야기가 됩니다.</p>
+<p>그렇지 않으면 지금 제가 계좌를 하나 개설한다고 하더라도, 그 내용은 가장 최근 블럭인 470만번 이상의 블럭에 포함되어 있을 것이기 때문에 앱에서 그 계좌의 존재조차 알 수 없겠죠.</p>
+<p>뿐만 아니라 이더리움 네트워크가 계속되어 블럭의 수가 늘어날때마다 계속 앱의 데이터가 몸집을 키워야 합니다.</p>
+<p>하지만 그래서는 정상적인 앱으로서 기능하기엔 무리가 있겠죠. 때문에, <strong><em>Provider</em></strong>라는 것이 필요하게 됩니다. 이 Provider에 대한 내용은 아래와 같습니다.</p>
+<ol>
+<li><p>Provider는 <strong>full노드</strong>이다.</p>
+</li>
+<li><p>Provider는 <strong>dApp의 서버</strong>로서 기능한다.</p>
+</li>
+<li><p>Provider는 클라이언트에게 통신할 수 있는 <strong>API를 제공</strong>한다.</p>
+</li>
+</ol>
+<p>요약하면, dApp이 기능하기 위해서는 full노드의 데이터를 필요로 합니다. 하지만 이 full노드는 너무 무거울 뿐만 아니라 계속해서 데이터가 늘어나기 때문에 이것이 앱 자체에 저장되기에는 무리가 있습니다.</p>
+<p>때문에, Provider라고 불리는 일종의 서버가 full노드가 되어 데이터를 가지고 있고, dApp은 이 Provider를 통해 트랜잭션을 일으키고, 또 데이터를 받아오는 것이죠.</p>
+<p>예를들어, 철수가 dApp을 통해서 영희에게 1eth를 송금했다고 치겠습니다. 이때 실제로 어떤 일이 일어나는지 자세히 정리하고 이번 포스트는 마무리 하겠습니다.</p>
+<ol>
+<li><p>철수가 dApp 에서 영희에게 1eth 송금하도록 입력</p>
+</li>
+<li><p>dApp이 Provider가 제공하는 API를 사용하여 Provider에게 어떤 기능을 사용할 것인지(철수가 영희에게 1eth를 송금한다는 트랜잭션 발생)와 이를 사용하기 위한 정보로 철수의 입력값을 파라미터로 전송</p>
+</li>
+<li><p>Provider는 입력받은 값을 full노드 데이터에 반영(트랜잭션을 발생시킴)</p>
+</li>
+<li><p>다른 노드들이 함께 이 트랜잭션이 과연 문제가 없는 것인지 확인</p>
+</li>
+<li><p>문제가 없는 경우 다음 블럭에 해당 트랜잭션 내용 추가, 문제가 있는 경우 해당 트랜잭션은 폐기.</p>
+</li>
+<li><p>(문제가 없는 경우)블럭이 체인에 정상적으로 추가되면서 모든 노드들이 철수가 영희에게 1eth를 보냈다는 트랜잭션 정보 동기화</p>
+</li>
+<li><p>Provider는 2번의 그 API를 통해 입력받은 내용의 처리결과를 dApp에게 return</p>
+</li>
+<li><p>철수는 dApp에서 처리 결과 확인.</p>
+</li>
+</ol>
+<p>저는 이전에 이더리움 블럭체인을 공부하면서 이 Provider의 역할을 제대로 파악하지 못하고 dApp을 공부하려하니 미궁을 헤매는 느낌이었습니다. 그래서 이 내용이 다른 처음 블럭체인과 스마트컨트랙트를 공부하는 분들에게 도움이 되었으면 해서 정리해보았습니다.</p>
+<p>다음 포스트에는 본격적으로 이 Provider를 셋팅하고, 간단히 사용하는 방법을 포스팅해보겠습니다. </p>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/12/2017-12-12-about-BlockChain/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">BlockChain이란?</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/categories/BlockChain/">BlockChain (2)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/BlockChain/Ethereum/">Ethereum (1)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BlockChain/"><i class='fa fa-tags'></i>BlockChain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethereum/"><i class='fa fa-tags'></i>Ethereum</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+  
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+  <!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col">
+                <h2>About Me</h2>
+                <p>Web / Server / BlockChain</p>
+            </div>
+            <!-- END BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col">
+
+            </div>
+            <!-- BEGIN BOTTOM CONTACTS -->
+            <div class="col-md-4 col-sm-6 pre-footer-col">
+                <h2>Contact</h2>
+                <address class="margin-bottom-40">
+                    Phone: 010-2290-7387<br>
+                    Email: <a href="mailto:dayong7387@gmail.com">dayong7387@gmail.com</a><br>
+                </address>
+            </div>
+            <!-- END BOTTOM CONTACTS -->
+
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6 padding-top-10">
+                &copy; 2017 Dany&#39;s Development
+            </div>
+            <!-- END COPYRIGHT -->
+            <!-- BEGIN SOCIAL -->
+<div class="col-md-6 col-sm-6">
+  <ul class="social-footer list-unstyled list-inline pull-right">
+    
+      <li><a href="https://github.com/devdany"><i class="fa fa-github"></i></a></li>
+    
+  </ul>  
+</div>
+<!-- END SOCIAL -->
+
+        </div>
+    </div>
+</div>
+<!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/js/wow.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+<script>
+  
+    var disqus_config = function () {
+      this.page.url = 'https://devdany.github.io/2017/12/14/2017-12-14-about-Ehereum/';
+    };
+  
+  (function() {  // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//dany.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<script id="dsq-count-scr" src="//dany.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
