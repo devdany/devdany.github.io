@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://devdany.github.io/img6.png">
 <meta property="og:image" content="https://devdany.github.io/img7.png">
 <meta property="og:image" content="https://devdany.github.io/img8.png">
-<meta property="og:updated_time" content="2017-12-15T16:35:00.413Z">
+<meta property="og:updated_time" content="2017-12-15T16:40:35.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="이더리움 네트워크 노드를 셋팅하고 사용해보자!">
 <meta name="twitter:description" content="GethGeth는 Ethereum에서 공식 제공하는 노드라고 할 수 있습니다. 즉, Geth를 설치하면 그 PC는 이더리움 네트워크의 노드가 됩니다. Geth를 설치하고 처음 실행하면 1번 현재까지의 모든 블록정보를 Import하기 시작할 것입니다. 처음의 저처럼 블럭체인 공부를 시작하는 사람이라면 일단 설치하고 볼 수 있겠지만, 미리 경고하지만 이더리움">
@@ -223,16 +223,14 @@ result:{“id”:1,”jsonrpc”:”2.0”,”result”:”0x00000000000000056bc
 <p>결과를 얻기는 했습니다만.. 뭔가 이상하죠? 100이 나와야 하는데요.</p>
 <p>다음포스트에서 이더리움에서 사용하는 단위에 대해서 한번 정리해보도록 하겠습니다만, 일단 간단하게 소개드리면 위 결과는 16진법으로 표현된 것인데, 이를 10진법으로 변환한 뒤 이를 1e18로 나누면 됩니다.</p>
 <p>geth 사용에 대해서는 일단 이 정도로 정리하도록 하겠습니다.</p>
-<p>##MetaMask</p>
-<p>아마 이더리움 공부를 시작하실때, 예제로 가장 많이 사용되었던 걸로 기억하는 메타마스크 입니다. 이것은 크롬 브라우저 플러그인 애플리케이션으로서, 이더리움 지갑입니다.</p>
+<h2 id="MetaMask"><a href="#MetaMask" class="headerlink" title="MetaMask"></a>MetaMask</h2><p>아마 이더리움 공부를 시작하실때, 예제로 가장 많이 사용되었던 걸로 기억하는 메타마스크 입니다. 이것은 크롬 브라우저 플러그인 애플리케이션으로서, 이더리움 지갑입니다.</p>
 <p>이 메타마스크를 사용하시면, geth설치 없이도 이더리움 네트워크상에서의 왠만한 모든 일들을 할 수 있습니다.</p>
 <p>그런데 이상합니다. 설치하시고 사용해보시면 아시겠지만, 가볍기 그지없는 이 어플리케이션이 어떻게 그 어마어마한 노드없이 이더리움 노드로서의 기능을 다 할 수 있는걸까요?</p>
 <p>이미 예상한 분도 있으시겠지만, 이 메타마스크 역시 위에서 제가 짠 자바 클라이언트 프로그램과 원리는 크게 다르지 않습니다. 즉, 다른 곳에 Provider를 셋팅하고 그 쪽을 바라보도록 해둔 프로그램인 것입니다.</p>
 <p>실제로, 이것저것 만지다 보면, 메타마스크에서 따로 셋팅한 Provider를 바라보도록 설정할 수 있음을 금방 아실수 있을겁니다.</p>
 <p>즉, 내가 설치한 메타마스크를 통해 생성한 account는 사실 메타마스크가 바라보는 Provider에 들어 있는겁니다.</p>
 <p>메타마스크 설치와 사용에 대해서는 다른 포스팅도 많고, 또 사용법이 무척 간단하므로 따로 쓰지는 않겠습니다.</p>
-<p>##Infura</p>
-<p>아마 서버개발자분이라면 aws는 한번쯤 다 들어보셨을 겁니다. infura는 이더리움 provider의 aws라고 보시면 바로 이해하실 거라고 믿습니다.</p>
+<h2 id="Infura"><a href="#Infura" class="headerlink" title="Infura"></a>Infura</h2><p>아마 서버개발자분이라면 aws는 한번쯤 다 들어보셨을 겁니다. infura는 이더리움 provider의 aws라고 보시면 바로 이해하실 거라고 믿습니다.</p>
 <p>즉, 개인용 노드 무료 호스팅 업체입니다. 하지만 이곳에 account를 생성하는 등의, 보안상 문제가 될 수 있는 api는 사용할 수 없도록 해두고 있어 개인적으로는 선호하지 않습니다.</p>
 <p>하지만 단순히 이더리움 full노드로 부터 데이터를 가져오기만 하는 용도로는 간편하기도 하고 비용도 들지 않아 좋습니다.</p>
 <p>사용해보고 싶으신 분은, 구글에 infura라고 검색하셔서 회원가입하신 후 사용하시면 됩니다.</p>
@@ -245,10 +243,19 @@ result:{“id”:1,”jsonrpc”:”2.0”,”result”:”0x00000000000000056bc
     
 <nav id="article-nav">
   
+    <a href="/2017/12/14/2017-12-14-about-Ehereum/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Ethereum이란?
+        
+      </div>
+    </a>
   
-    <a href="/2017/12/14/2017-12-14-about-Ehereum/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/12/12/2017-12-12-about-BlockChain/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Ethereum이란?</div>
+      <div class="article-nav-title">BlockChain이란?</div>
     </a>
   
 </nav>
