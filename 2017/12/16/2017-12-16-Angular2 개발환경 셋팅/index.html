@@ -19,7 +19,7 @@
 <meta property="og:url" content="https://devdany.github.io/2017/12/16/2017-12-16-Angular2 개발환경 셋팅/index.html">
 <meta property="og:site_name" content="Dany&#39;s Development">
 <meta property="og:description" content="Angular2 에 대해서 간단히 소개구글에서 개발하고 오픈소스로 제공하는 웹 프론트엔드 개발 프레임워크로, SPA개발에 특히 강점이 있는 특징이 있습니다. 컴포넌트 기반의 개발이 핵심이며, 데이터바인딩과 다양한 템플릿 문법을 통해 편리하게 개발을 할 수 있습니다. 더 자세한 정보는 공식문서인 https://angular.io/guide/architectu">
-<meta property="og:updated_time" content="2017-12-17T14:37:11.720Z">
+<meta property="og:updated_time" content="2017-12-17T14:41:39.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular2 개발환경 셋팅">
 <meta name="twitter:description" content="Angular2 에 대해서 간단히 소개구글에서 개발하고 오픈소스로 제공하는 웹 프론트엔드 개발 프레임워크로, SPA개발에 특히 강점이 있는 특징이 있습니다. 컴포넌트 기반의 개발이 핵심이며, 데이터바인딩과 다양한 템플릿 문법을 통해 편리하게 개발을 할 수 있습니다. 더 자세한 정보는 공식문서인 https://angular.io/guide/architectu">
@@ -173,40 +173,38 @@
 더 자세한 정보는 공식문서인 <a href="https://angular.io/guide/architecture" target="_blank" rel="noopener">https://angular.io/guide/architecture</a> 이곳을 참고하시면 됩니다.</p>
 <h2 id="본격적으로-개발환경을-구축해-보기"><a href="#본격적으로-개발환경을-구축해-보기" class="headerlink" title="본격적으로 개발환경을 구축해 보기"></a>본격적으로 개발환경을 구축해 보기</h2><p>Angular에는 Angular Cli라는 커맨드라인으로 편리하게 개발환경을 구축할 수 있는 인터페이스가 존재합니다. 이것을 활용해 보죠.</p>
 <p><em>node가 설치되어 있지 않다면, 먼저 node를 설치해주세요.</em></p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -g @angular/cli</span><br></pre></td></tr></table></figure>
+<p><code>npm install -g @angular/cli</code></p>
 <p>이렇게 간편하게 angular/cli를 설치할 수 있습니다. 그런데, 혹 맥 또는 리눅스 환경의 경우 설치 중간에 permission 관련 에러가 생기는 경우가 있는데,</p>
 <p><a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank" rel="noopener">https://docs.npmjs.com/getting-started/fixing-npm-permissions</a></p>
 <p>여기에 올라와 있는 영상을 참고해서 해결해봅시다. 요약하면, npm에서 글로벌 설치하는 경우, 글로벌 설치 디렉터리를 따로 셋팅하고 해당 디렉터리 권한을 설정하는 것입니다.</p>
 <p>이렇게 Angular Cli가 잘 설치되었으면, ng 커맨드라인 명령어를 사용할 수 있게 됩니다. 이제 다음과 같이 프로젝트를 생성할 수 있습니다.</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng <span class="built_in">new</span> 프로젝트 이름(디렉터리 이름) --<span class="built_in">style</span> css --<span class="built_in">prefix</span> <span class="built_in">prefix</span>이름(커스텀 선택자 공통 이름)</span><br></pre></td></tr></table></figure>
-<p>다른건 차치하고, prefix에 대해 궁금증이 생길지도 모르겠습니다. 사실 큰 의미는 없고, 
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;dany-product&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>이렇게 prefix-component이름 으로 커스텀 선택자가 만들어 지게 됩니다. 개발하다보면 자연스럽게 알게 되니 크게 신경쓸 필요는 없습니다.</p>
+<p>다른건 차치하고, prefix에 대해 궁금증이 생길지도 모르겠습니다. 사실 큰 의미는 없고, <code>&lt;dany-product&gt;</code> 이렇게 prefix-component이름 으로 커스텀 선택자가 만들어 지게 됩니다. 개발하다보면 자연스럽게 알게 되니 크게 신경쓸 필요는 없습니다.</p>
 <p>이걸로 벌써 Project 생성과 개발환경 셋팅이 끝났습니디! 굉장히 간단하죠?</p>
 <p>이제, 자주 사용하는 명령어 / 옵션을 살펴보겠습니다. 이 이하는, 저도 추가로 알게 되는 대로 계속 추가 정리할 예정입니다.</p>
-<h2 id="Angular-Cli-커맨드-라인-명령어"><a href="#Angular-Cli-커맨드-라인-명령어" class="headerlink" title="Angular Cli 커맨드 라인 명령어"></a>Angular Cli 커맨드 라인 명령어</h2><p>1.앵귤러 서버 구동
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng <span class="keyword">server</span></span><br></pre></td></tr></table></figure></p>
-<p>2.컴포넌트 생성
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ng</span> <span class="selector-tag">g</span> <span class="selector-tag">c</span> (디렉터리/)컴포넌트 이름</span><br></pre></td></tr></table></figure></p>
+<h2 id="Angular-Cli-커맨드-라인-명령어"><a href="#Angular-Cli-커맨드-라인-명령어" class="headerlink" title="Angular Cli 커맨드 라인 명령어"></a>Angular Cli 커맨드 라인 명령어</h2><p>1.앵귤러 서버 구동</p>
+<p><code>ng server</code></p>
+<p>2.컴포넌트 생성</p>
+<p><code>ng g c (디렉터리/)컴포넌트 이름</code></p>
 <p>3.인터페이스 생성</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng g<span class="built_in"> interface </span>(디렉터리/)인터페이스이름</span><br></pre></td></tr></table></figure>
+<p><code>ng g interface (디렉터리/)인터페이스이름</code></p>
 <p>4.모듈 생성</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng g <span class="class"><span class="keyword">module</span> (디렉터리/)모듈 이름</span></span><br></pre></td></tr></table></figure>
+<p><code>ng g module (디렉터리/)모듈 이름</code></p>
 <h2 id="실행-옵션"><a href="#실행-옵션" class="headerlink" title="실행 옵션"></a>실행 옵션</h2><ol>
-<li>–export<blockquote>
-<p>ex)</p>
-</blockquote>
-</li>
+<li>–export</li>
 </ol>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng g c core/navigation <span class="comment">--export</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>ex)</li>
+</ul>
+<p><code>ng g c core/navigation --export</code></p>
 <p>컴포넌트 생성시, –export옵션을 주면 모듈에 자동으로 export가 들어간다.</p>
 <ol>
-<li>–is<blockquote>
-<p>ex)</p>
-</blockquote>
-</li>
+<li>–is</li>
 </ol>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng g <span class="built_in">c</span> banner --<span class="keyword">is</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>ex)</li>
+</ul>
+<p><code>ng g c banner --is</code></p>
 <p>컴포넌트 생성시, –is 옵션을 주면 css파일이 따로 생성되지 않는다. 배너같이 많은 css가 필요 없는 경우 사용하면 조금 더 편리하게 개발할 수 있다.</p>
 
       
