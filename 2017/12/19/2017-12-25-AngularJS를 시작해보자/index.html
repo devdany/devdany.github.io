@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>AngularJS를 시작해보자 | Dany&#39;s Development</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="프로젝트 생성Angular Cli를 전역설치하게되면, 터미널 명령어로 간단하게 앵귤러 프로젝트를 생성할 수 있습니다. ng new 프로젝트이름( ex - helloAngular ) 프로젝트 실행앵귤러는 다음과 같은 명령어를 입력받으면, webpack을 사용하여 소스코드를 번들링하고, 개발용 내장서버를 사용하여 프로젝트를 실행합니다. ng serve   프로">
+<meta name="keywords" content="Angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJS를 시작해보자">
+<meta property="og:url" content="https://devdany.github.io/2017/12/19/2017-12-25-AngularJS를 시작해보자/index.html">
+<meta property="og:site_name" content="Dany&#39;s Development">
+<meta property="og:description" content="프로젝트 생성Angular Cli를 전역설치하게되면, 터미널 명령어로 간단하게 앵귤러 프로젝트를 생성할 수 있습니다. ng new 프로젝트이름( ex - helloAngular ) 프로젝트 실행앵귤러는 다음과 같은 명령어를 입력받으면, webpack을 사용하여 소스코드를 번들링하고, 개발용 내장서버를 사용하여 프로젝트를 실행합니다. ng serve   프로">
+<meta property="og:image" content="https://devdany.github.io/img10.png">
+<meta property="og:image" content="https://devdany.github.io/img11.png">
+<meta property="og:image" content="https://devdany.github.io/img12.png">
+<meta property="og:image" content="https://devdany.github.io/img13.png">
+<meta property="og:updated_time" content="2017-12-25T09:25:47.520Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AngularJS를 시작해보자">
+<meta name="twitter:description" content="프로젝트 생성Angular Cli를 전역설치하게되면, 터미널 명령어로 간단하게 앵귤러 프로젝트를 생성할 수 있습니다. ng new 프로젝트이름( ex - helloAngular ) 프로젝트 실행앵귤러는 다음과 같은 명령어를 입력받으면, webpack을 사용하여 소스코드를 번들링하고, 개발용 내장서버를 사용하여 프로젝트를 실행합니다. ng serve   프로">
+<meta name="twitter:image" content="https://devdany.github.io/img10.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Dany&#39;s Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info" style="margin-left: 10%">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>010-2290-7387</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span>dayong7387@gmail.com</span></li>
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <!--<a class="site-logo" href="/" id="logo">Dany&#39;s Development</a>-->
+
+        <a class="site-logo " href="/" style="margin-left: 10%">
+            <!--<img src="/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">-->
+            <h1>Logo</h1>
+        </a>
+
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation pull-right font-transform-inherit" style="margin-right: 6%">
+            <ul>
+                
+                <li class="" >
+                    <a href="/">Home</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/projects/">Projects</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/archives/">Blog</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/about/">About</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- END NAVIGATION -->
+    </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb" style="margin-left: 9%">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main" style="margin-left: 9%">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/2017/12/19/2017-12-25-AngularJS를 시작해보자/">AngularJS를 시작해보자</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-2017-12-25-AngularJS를 시작해보자" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> dany</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2017-12-18T15:00:00.000Z" itemprop="datePublished">2017/12/19</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/tags/Angular/" title="Angular">Angular</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Categories:
+    <a class="article-category-link" href="/categories/Front-End/">Front-End</a>, <a class="article-category-link" href="/categories/Front-End/Angular/">Angular</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="프로젝트-생성"><a href="#프로젝트-생성" class="headerlink" title="프로젝트 생성"></a>프로젝트 생성</h2><p>Angular Cli를 전역설치하게되면, 터미널 명령어로 간단하게 앵귤러 프로젝트를 생성할 수 있습니다.</p>
+<p><code>ng new 프로젝트이름( ex - helloAngular )</code></p>
+<h2 id="프로젝트-실행"><a href="#프로젝트-실행" class="headerlink" title="프로젝트 실행"></a>프로젝트 실행</h2><p>앵귤러는 다음과 같은 명령어를 입력받으면, webpack을 사용하여 소스코드를 번들링하고, 개발용 내장서버를 사용하여 프로젝트를 실행합니다.</p>
+<p><code>ng serve</code> </p>
+<p><img src="/img10.png" alt="Alt text"></p>
+<h2 id="프로젝트-구성"><a href="#프로젝트-구성" class="headerlink" title="프로젝트 구성"></a>프로젝트 구성</h2><p>앵귤러는 각종 설정파일 및 리소스를 제하면, 다음과 같은 프로젝트 구성을 가지고 있습니다.</p>
+<p><img src="/img11.png" alt="Alt text"></p>
+<p><em>app</em></p>
+<p>앵귤러는 기본적으로 최소한 하나의 모듈과 하나의 컴포넌트를 필요로 하는데, Angular Cli를 사용하며 프로젝트를 생성하게 되면 이를 자동적으로 생성해 줍니다.</p>
+<p>이 app 디렉터리 안의 app module과 app component가 바로 그것인데, 이것이 루트 모듈/컴포넌트가 됩니다. 루트모듈은 main.ts에 의해 부트스트랩되고, 루트컴포넌트는 루트모듈에 의해 부트스트랩됩니다.</p>
+<h2 id="컴포넌트-구성"><a href="#컴포넌트-구성" class="headerlink" title="컴포넌트 구성"></a>컴포넌트 구성</h2><p>현재 나오는 앵귤러 역시 React, Vue 등과 같이 컴포넌트 기반의 웹 개발 프레임워크입니다. 따라서, 역시 뭐니뭐니 해도 핵심은 컴포넌트일 것입니다. 이 앵귤러 컴포먼트를 살펴보겠습니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-root'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./app.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./app.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent &#123;</span><br><span class="line">  title = <span class="string">'app'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>컴포넌트는 import영역, 데코레이터 영역, 클래스 영역으로 나눌 수 있습니다. </p>
+<p><em>import 영역</em></p>
+<p>해당 컴포넌트가 필요로 하는 외부 모듈 임포트를 선언합니다.</p>
+<p><em>데코레이터 영역</em></p>
+<p>인자로 전달할 컴포넌트 생성에 필요한 메타데이터(셀렉터, 템플릿, 스타일) 객체를 선언합니다.</p>
+<p><em>클래스 영역</em></p>
+<p>컴포넌트의 뷰를 관리하기 위한 로직이 들어갑니다.</p>
+<h2 id="컴포넌트-생성"><a href="#컴포넌트-생성" class="headerlink" title="컴포넌트 생성"></a>컴포넌트 생성</h2><p>그럼 컴포넌트를 생성해 보겠습니다.</p>
+<p><code>ng g c hello</code></p>
+<p><img src="/img12.png" alt="Alt text"></p>
+<p>그림처럼 컴포넌트가 생성된것을 볼 수 있습니다.</p>
+<p>hello컴포넌트 템플릿 파일(hello.component.html)에 다음처럼 입력해봅시다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hello"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello component입니다<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css적용을 테스트 해보기 위해 css파일도 수정해봅니다</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hello</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>루트모듈(app module)이 helloComponent를 포함하고 있음을 확인합니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; NgModule &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; AppComponent &#125; <span class="keyword">from</span> <span class="string">'./app.component'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; HelloComponent &#125; <span class="keyword">from</span> <span class="string">'./hello/hello.component'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  declarations: [</span><br><span class="line">    AppComponent,</span><br><span class="line">    HelloComponent</span><br><span class="line">  ],</span><br><span class="line">  imports: [</span><br><span class="line">    BrowserModule</span><br><span class="line">  ],</span><br><span class="line">  providers: [],</span><br><span class="line">  bootstrap: [AppComponent]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>루트컴포넌트의 템플릿에 helloComponent를 포함시킵니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--The content below is only a placeholder and can be replaced.--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align:center"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">    Welcome to &#123;&#123; title &#125;&#125;!</span><br><span class="line">  <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">alt</span>=<span class="string">"Angular Logo"</span> <span class="attr">src</span>=<span class="string">"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Here are some links to help you start: <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"noopener"</span> <span class="attr">href</span>=<span class="string">"https://angular.io/tutorial"</span>&gt;</span>Tour of Heroes<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"noopener"</span> <span class="attr">href</span>=<span class="string">"https://github.com/angular/angular-cli/wiki"</span>&gt;</span>CLI Documentation<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"noopener"</span> <span class="attr">href</span>=<span class="string">"https://blog.angular.io/"</span>&gt;</span>Angular blog<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">app-hello</span>&gt;</span><span class="tag">&lt;/<span class="name">app-hello</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>아래처럼 컴포넌트가 제대로 나왔으면 성공입니다!</p>
+<p><img src="/img13.png" alt="Alt text"></p>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/19/2017-12-20-이더리움에 대해 좀더 알아보자/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">이더리움에 대해 좀더 알아보자(gas와 wei)</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/categories/BlockChain/">BlockChain (5)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/Front-End/">Front-End (2)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/BlockChain/Ethereum/">Ethereum (4)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/Front-End/Angular/">Angular (2)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/"><i class='fa fa-tags'></i>Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular-Cli/"><i class='fa fa-tags'></i>Angular-Cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BlockChain/"><i class='fa fa-tags'></i>BlockChain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethereum/"><i class='fa fa-tags'></i>Ethereum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web3/"><i class='fa fa-tags'></i>Web3</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+  <!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>About Me</h2>
+                <p>Web / Server / BlockChain</p>
+            </div>
+            <!-- END BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+
+            </div>
+            <!-- BEGIN BOTTOM CONTACTS -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>Contact</h2>
+                <address class="margin-bottom-40">
+                    Phone: 010-2290-7387<br>
+                    Email: <a href="mailto:dayong7387@gmail.com">dayong7387@gmail.com</a><br>
+                    github: <a href="https://github.com/devdany">&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
+                </address>
+            </div>
+            <!-- END BOTTOM CONTACTS -->
+
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6 padding-top-10" style="margin-left: 8%">
+                &copy; 2017 Dany&#39;s Development
+            </div>
+            <!-- END COPYRIGHT -->
+
+
+
+        </div>
+
+    </div>
+</div>
+<!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/js/wow.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+<script>
+  
+    var disqus_config = function () {
+      this.page.url = 'https://devdany.github.io/2017/12/19/2017-12-25-AngularJS를 시작해보자/';
+    };
+  
+  (function() {  // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//dany.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<script id="dsq-count-scr" src="//dany.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
