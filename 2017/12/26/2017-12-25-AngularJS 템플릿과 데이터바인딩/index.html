@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>Angular 템플릿과 데이터 바인딩 | Dany&#39;s Development</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="템플릿이란?템플릿은, Html과 앵귤러가 제공하는 템플릿 문법을 활용여 컴포넌트 단위로 뷰를 정의할 수 있도록 해줍니다. 앵귤러에서는, 컴포넌트 클래스로 뷰와 모델을 정의하고, 데이터바인딩을 통해 이 분리된 두 요소가 유기적으로 동작할 수 있도록 합니다. 데이터바인딩?Angular 단방향 데이터 바인딩과 양방향 데이터 바인딩을 지원합니다. 아래의 7가지 방">
+<meta name="keywords" content="Angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular 템플릿과 데이터 바인딩">
+<meta property="og:url" content="https://devdany.github.io/2017/12/26/2017-12-25-AngularJS 템플릿과 데이터바인딩/index.html">
+<meta property="og:site_name" content="Dany&#39;s Development">
+<meta property="og:description" content="템플릿이란?템플릿은, Html과 앵귤러가 제공하는 템플릿 문법을 활용여 컴포넌트 단위로 뷰를 정의할 수 있도록 해줍니다. 앵귤러에서는, 컴포넌트 클래스로 뷰와 모델을 정의하고, 데이터바인딩을 통해 이 분리된 두 요소가 유기적으로 동작할 수 있도록 합니다. 데이터바인딩?Angular 단방향 데이터 바인딩과 양방향 데이터 바인딩을 지원합니다. 아래의 7가지 방">
+<meta property="og:updated_time" content="2017-12-26T14:09:33.729Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular 템플릿과 데이터 바인딩">
+<meta name="twitter:description" content="템플릿이란?템플릿은, Html과 앵귤러가 제공하는 템플릿 문법을 활용여 컴포넌트 단위로 뷰를 정의할 수 있도록 해줍니다. 앵귤러에서는, 컴포넌트 클래스로 뷰와 모델을 정의하고, 데이터바인딩을 통해 이 분리된 두 요소가 유기적으로 동작할 수 있도록 합니다. 데이터바인딩?Angular 단방향 데이터 바인딩과 양방향 데이터 바인딩을 지원합니다. 아래의 7가지 방">
+  
+    <link rel="alternative" href="/atom.xml" title="Dany&#39;s Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info" style="margin-left: 10%">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>010-2290-7387</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span>dayong7387@gmail.com</span></li>
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <!--<a class="site-logo" href="/" id="logo">Dany&#39;s Development</a>-->
+
+        <a class="site-logo " href="/" style="margin-left: 10%">
+            <!--<img src="/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">-->
+            <h1>Logo</h1>
+        </a>
+
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation pull-right font-transform-inherit" style="margin-right: 6%">
+            <ul>
+                
+                <li class="" >
+                    <a href="/">Home</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/projects/">Projects</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/archives/">Blog</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/about/">About</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- END NAVIGATION -->
+    </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb" style="margin-left: 9%">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main" style="margin-left: 9%">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/2017/12/26/2017-12-25-AngularJS 템플릿과 데이터바인딩/">Angular 템플릿과 데이터 바인딩</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-2017-12-25-AngularJS 템플릿과 데이터바인딩" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> dany</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2017-12-25T15:00:00.000Z" itemprop="datePublished">2017/12/26</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/tags/Angular/" title="Angular">Angular</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Categories:
+    <a class="article-category-link" href="/categories/Front-End/">Front-End</a>, <a class="article-category-link" href="/categories/Front-End/Angular/">Angular</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="템플릿이란"><a href="#템플릿이란" class="headerlink" title="템플릿이란?"></a>템플릿이란?</h2><p>템플릿은, Html과 앵귤러가 제공하는 템플릿 문법을 활용여 컴포넌트 단위로 뷰를 정의할 수 있도록 해줍니다.</p>
+<p>앵귤러에서는, 컴포넌트 클래스로 뷰와 모델을 정의하고, 데이터바인딩을 통해 이 분리된 두 요소가 유기적으로 동작할 수 있도록 합니다.</p>
+<h2 id="데이터바인딩"><a href="#데이터바인딩" class="headerlink" title="데이터바인딩?"></a>데이터바인딩?</h2><p>Angular 단방향 데이터 바인딩과 양방향 데이터 바인딩을 지원합니다. 아래의 7가지 방법을 제공하고 있습니다. 그중 주로 사용하는 것들을 알아보겠습니다.</p>
+<table>
+<thead>
+<tr>
+<th>데이터 바인딩</th>
+<th>데이터의 흐름</th>
+<th>문법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>인터폴레이션</td>
+<td>컴포넌트 -&gt; 클래스</td>
+<td></td>
+</tr>
+<tr>
+<td>프로퍼티 바인딩</td>
+<td>컴포넌트 -&gt; 클래스</td>
+<td>[property]=”expression”</td>
+</tr>
+<tr>
+<td>어트리뷰트 바인딩</td>
+<td>컴포넌트 -&gt; 클래스</td>
+<td>[attr.attribute-name]=”expression”</td>
+</tr>
+<tr>
+<td>클래스 바인딩</td>
+<td>컴포넌트 -&gt; 클래스</td>
+<td>[class.class-name]=”expression”</td>
+</tr>
+<tr>
+<td>스타일 바인딩</td>
+<td>컴포넌트 -&gt; 클래스</td>
+<td>[style.style-name]=”expression”</td>
+</tr>
+<tr>
+<td>이벤트 바인딩</td>
+<td>컴포넌트 &lt;- 클래스</td>
+<td>(event)=”statement”</td>
+</tr>
+<tr>
+<td>양방향 데이터 바인딩</td>
+<td>컴포넌트 &lt;-&gt; 클래스</td>
+<td>[(NgModel)]=”variable”</td>
+</tr>
+</tbody>
+</table>
+<h2 id="인터폴레이션"><a href="#인터폴레이션" class="headerlink" title="인터폴레이션"></a>인터폴레이션</h2><p> <code></code> 형태로 데이터를 바인딩 할 수 있습니다. 사실, Angular cli로 처음 프로젝트를 생성하게 되면, 기본적으로 이 방법이 사용되고 있습니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-root'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./app.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./app.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent &#123;</span><br><span class="line">  title = <span class="string">'app'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align:center"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">    Welcome to &#123;&#123; title &#125;&#125;!</span><br><span class="line">  <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">alt</span>=<span class="string">"Angular Logo"</span> <span class="attr">src</span>=<span class="string">"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Here are some links to help you start: <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"noopener"</span> <span class="attr">href</span>=<span class="string">"https://angular.io/tutorial"</span>&gt;</span>Tour of Heroes<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"noopener"</span> <span class="attr">href</span>=<span class="string">"https://github.com/angular/angular-cli/wiki"</span>&gt;</span>CLI Documentation<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"noopener"</span> <span class="attr">href</span>=<span class="string">"https://blog.angular.io/"</span>&gt;</span>Angular blog<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">``` </span><br><span class="line">컴포넌트 클래스에서 정의한 title이, 템플릿에 그대로 바인딩 되고 있는 것을 볼 수 있습니다.</span><br><span class="line"></span><br><span class="line">## 프로퍼티 바인딩</span><br><span class="line"></span><br><span class="line">앵귤러에서는, 컴포넌트에서 정의한 프로퍼티를 DOM 프로퍼티에 바인딩 할 수 있습니다. </span><br><span class="line"></span><br><span class="line">```typescript</span><br><span class="line">import &#123; Component, OnInit &#125; from '@angular/core';</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: 'app-hello',</span><br><span class="line">  templateUrl: './hello.component.html',</span><br><span class="line">  styleUrls: ['./hello.component.css']</span><br><span class="line">&#125;)</span><br><span class="line">export class HelloComponent implements OnInit &#123;</span><br><span class="line"></span><br><span class="line">  typeProperty = "text"</span><br><span class="line"></span><br><span class="line">  constructor() &#123; &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hello"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello component입니다<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> [<span class="attr">type</span>]=<span class="string">"typeProperty"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>HelloComponent의 type 프로퍼티가 템플릿 HTML요소의 Dom 프로퍼티에 바인딩 되고 있는 것을 볼 수 있습니다.</p>
+<h2 id="이벤트-바인딩"><a href="#이벤트-바인딩" class="headerlink" title="이벤트 바인딩"></a>이벤트 바인딩</h2><p><code>(event)=&quot;status&quot;</code> 형태로 이벤트를 바인딩 할 수 있습니다. 이 이벤트는, 컴포넌트에서 클래스로 바인딩됩니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-hello'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./hello.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./hello.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> HelloComponent <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123; &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  click() &#123;</span><br><span class="line">    alert(<span class="string">'click 되었습니다!'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hello"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello component입니다<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> (<span class="attr">click</span>)=<span class="string">"click()"</span>&gt;</span>click해주세요<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>click이라는 이벤트에 컴포넌트 클래스에서 선언한 click()메서드를 바인딩하였습니다.</p>
+<h2 id="양방향-데이터-바인딩"><a href="#양방향-데이터-바인딩" class="headerlink" title="양방향 데이터 바인딩"></a>양방향 데이터 바인딩</h2><p>양방향 데이터 바인딩은, 뷰와 모델이 상호간에 데이터 상태변화를 인지하여 바인딩하는 것을 말합니다.</p>
+<p>즉, 뷰가 변하면 모델도 변하고, 모델이 변하면 뷰도 변하는 것이죠.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-hello'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./hello.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./hello.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> HelloComponent <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line"></span><br><span class="line">  name=<span class="string">''</span>;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123; &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hello"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello component입니다<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> [(<span class="attr">ngModel</span>)]=<span class="string">"name"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>이때, input에 값을 입력하게 되면 그 value가 변하면서 name 프로퍼티를 변화시키고, 그 값은 인터폴레이션으로 바인딩됨을 확인할 수 있습니다. </p>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/25/2017-12-25-AngularJS를 시작해보자/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">AngularJS를 시작해보자</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/categories/BlockChain/">BlockChain (5)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/Front-End/">Front-End (3)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/BlockChain/Ethereum/">Ethereum (4)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/Front-End/Angular/">Angular (3)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/"><i class='fa fa-tags'></i>Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular-Cli/"><i class='fa fa-tags'></i>Angular-Cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BlockChain/"><i class='fa fa-tags'></i>BlockChain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethereum/"><i class='fa fa-tags'></i>Ethereum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web3/"><i class='fa fa-tags'></i>Web3</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+  <!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>About Me</h2>
+                <p>Web / Server / BlockChain</p>
+            </div>
+            <!-- END BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+
+            </div>
+            <!-- BEGIN BOTTOM CONTACTS -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>Contact</h2>
+                <address class="margin-bottom-40">
+                    Phone: 010-2290-7387<br>
+                    Email: <a href="mailto:dayong7387@gmail.com">dayong7387@gmail.com</a><br>
+                    github: <a href="https://github.com/devdany">&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
+                </address>
+            </div>
+            <!-- END BOTTOM CONTACTS -->
+
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6 padding-top-10" style="margin-left: 8%">
+                &copy; 2017 Dany&#39;s Development
+            </div>
+            <!-- END COPYRIGHT -->
+
+
+
+        </div>
+
+    </div>
+</div>
+<!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/js/wow.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+<script>
+  
+    var disqus_config = function () {
+      this.page.url = 'https://devdany.github.io/2017/12/26/2017-12-25-AngularJS 템플릿과 데이터바인딩/';
+    };
+  
+  (function() {  // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//dany.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<script id="dsq-count-scr" src="//dany.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
