@@ -16,10 +16,10 @@
 <meta name="keywords" content="Angular">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular 템플릿과 데이터 바인딩">
-<meta property="og:url" content="https://devdany.github.io/2017/12/26/2017-12-25-AngularJS 템플릿과 데이터바인딩/index.html">
+<meta property="og:url" content="https://devdany.github.io/2017/12/26/2017-12-25-Angular 템플릿과 데이터바인딩/index.html">
 <meta property="og:site_name" content="Dany&#39;s Development">
 <meta property="og:description" content="템플릿이란?템플릿은, Html과 앵귤러가 제공하는 템플릿 문법을 활용여 컴포넌트 단위로 뷰를 정의할 수 있도록 해줍니다. 앵귤러에서는, 컴포넌트 클래스로 뷰와 모델을 정의하고, 데이터바인딩을 통해 이 분리된 두 요소가 유기적으로 동작할 수 있도록 합니다. 데이터바인딩?Angular 단방향 데이터 바인딩과 양방향 데이터 바인딩을 지원합니다. 아래의 7가지 방">
-<meta property="og:updated_time" content="2017-12-26T14:09:33.729Z">
+<meta property="og:updated_time" content="2017-12-26T14:20:11.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular 템플릿과 데이터 바인딩">
 <meta name="twitter:description" content="템플릿이란?템플릿은, Html과 앵귤러가 제공하는 템플릿 문법을 활용여 컴포넌트 단위로 뷰를 정의할 수 있도록 해줍니다. 앵귤러에서는, 컴포넌트 클래스로 뷰와 모델을 정의하고, 데이터바인딩을 통해 이 분리된 두 요소가 유기적으로 동작할 수 있도록 합니다. 데이터바인딩?Angular 단방향 데이터 바인딩과 양방향 데이터 바인딩을 지원합니다. 아래의 7가지 방">
@@ -126,13 +126,13 @@
   <section id="main" style="margin-left: 9%">
     
     <h2 itemprop="name">
-      <a class="article-title" href="/2017/12/26/2017-12-25-AngularJS 템플릿과 데이터바인딩/">Angular 템플릿과 데이터 바인딩</a>
+      <a class="article-title" href="/2017/12/26/2017-12-25-Angular 템플릿과 데이터바인딩/">Angular 템플릿과 데이터 바인딩</a>
     </h2>
 
 
     <div class="row">
 <div class="col-md-9 col-sm-9 blog-posts">
-<article id="post-2017-12-25-AngularJS 템플릿과 데이터바인딩" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+<article id="post-2017-12-25-Angular 템플릿과 데이터바인딩" class="article article-type-post blog-item" itemscope itemprop="blogPost">
   <div class="article-meta">
   </div>
   <div class="article-inner">
@@ -216,7 +216,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="인터폴레이션"><a href="#인터폴레이션" class="headerlink" title="인터폴레이션"></a>인터폴레이션</h2><p> <code></code> 형태로 데이터를 바인딩 할 수 있습니다. 사실, Angular cli로 처음 프로젝트를 생성하게 되면, 기본적으로 이 방법이 사용되고 있습니다.</p>
+<h2 id="인터폴레이션"><a href="#인터폴레이션" class="headerlink" title="인터폴레이션"></a>인터폴레이션</h2> 형태로 데이터를 바인딩 할 수 있습니다. 사실, Angular cli로 처음 프로젝트를 생성하게 되면, 기본적으로 이 방법이 사용되고 있습니다.
+
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-root'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./app.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./app.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent &#123;</span><br><span class="line">  title = <span class="string">'app'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align:center"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">    Welcome to &#123;&#123; title &#125;&#125;!</span><br><span class="line">  <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">alt</span>=<span class="string">"Angular Logo"</span> <span class="attr">src</span>=<span class="string">"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Here are some links to help you start: <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"noopener"</span> <span class="attr">href</span>=<span class="string">"https://angular.io/tutorial"</span>&gt;</span>Tour of Heroes<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"noopener"</span> <span class="attr">href</span>=<span class="string">"https://github.com/angular/angular-cli/wiki"</span>&gt;</span>CLI Documentation<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"noopener"</span> <span class="attr">href</span>=<span class="string">"https://blog.angular.io/"</span>&gt;</span>Angular blog<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">``` </span><br><span class="line">컴포넌트 클래스에서 정의한 title이, 템플릿에 그대로 바인딩 되고 있는 것을 볼 수 있습니다.</span><br><span class="line"></span><br><span class="line">## 프로퍼티 바인딩</span><br><span class="line"></span><br><span class="line">앵귤러에서는, 컴포넌트에서 정의한 프로퍼티를 DOM 프로퍼티에 바인딩 할 수 있습니다. </span><br><span class="line"></span><br><span class="line">```typescript</span><br><span class="line">import &#123; Component, OnInit &#125; from '@angular/core';</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: 'app-hello',</span><br><span class="line">  templateUrl: './hello.component.html',</span><br><span class="line">  styleUrls: ['./hello.component.css']</span><br><span class="line">&#125;)</span><br><span class="line">export class HelloComponent implements OnInit &#123;</span><br><span class="line"></span><br><span class="line">  typeProperty = "text"</span><br><span class="line"></span><br><span class="line">  constructor() &#123; &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hello"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello component입니다<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> [<span class="attr">type</span>]=<span class="string">"typeProperty"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -238,10 +239,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2017/12/27/2017-12-27-Angular 디렉티브와 템플릿 참조변수와 연산자/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          AngularJS를 시작해보자
+        
+      </div>
+    </a>
   
-    <a href="/2017/12/25/2017-12-25-AngularJS를 시작해보자/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/12/25/2017-12-25-Angular를 시작해보자/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">AngularJS를 시작해보자</div>
+      <div class="article-nav-title">Angular를 시작해보자</div>
     </a>
   
 </nav>
@@ -265,7 +275,7 @@
 	</li>
       
 	<li>
-	  <a href="/categories/Front-End/">Front-End (3)</a>
+	  <a href="/categories/Front-End/">Front-End (4)</a>
 	</li>
       
 	<li>
@@ -273,7 +283,7 @@
 	</li>
       
 	<li>
-	  <a href="/categories/Front-End/Angular/">Angular (3)</a>
+	  <a href="/categories/Front-End/Angular/">Angular (4)</a>
 	</li>
       
     </ul>
@@ -302,6 +312,8 @@
 <!-- BEGIN FEATURED POSTS -->                            
 <h2>Featured Posts</h2>
 <div class="recent-news margin-bottom-10">
+  
+    
   
     
   
@@ -421,7 +433,7 @@
 <script>
   
     var disqus_config = function () {
-      this.page.url = 'https://devdany.github.io/2017/12/26/2017-12-25-AngularJS 템플릿과 데이터바인딩/';
+      this.page.url = 'https://devdany.github.io/2017/12/26/2017-12-25-Angular 템플릿과 데이터바인딩/';
     };
   
   (function() {  // DON'T EDIT BELOW THIS LINE
