@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>Angular와 RxJS | Dany&#39;s Development</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="Reactive Programming?저번 포스트에서 명확히 정리를 못한것 같아 한번 더 정리하려고 합니다. Reactive Programming(반응형 프로그래밍)은, 비동기 데이터 처리를 위해 Observable Event Stream을 Subscribe하다가, 이 Stream에 애플리케이션이 반응하도록 하는 프로그래밍 방식입니다. 애플리케이션이 외부">
+<meta name="keywords" content="Angular,rxjs,reactive programming,async programming,함수형 프로그래밍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular와 RxJS">
+<meta property="og:url" content="https://devdany.github.io/2017/12/29/2017-12-30-Angular와 RxJS/index.html">
+<meta property="og:site_name" content="Dany&#39;s Development">
+<meta property="og:description" content="Reactive Programming?저번 포스트에서 명확히 정리를 못한것 같아 한번 더 정리하려고 합니다. Reactive Programming(반응형 프로그래밍)은, 비동기 데이터 처리를 위해 Observable Event Stream을 Subscribe하다가, 이 Stream에 애플리케이션이 반응하도록 하는 프로그래밍 방식입니다. 애플리케이션이 외부">
+<meta property="og:image" content="https://devdany.github.io/img14.png">
+<meta property="og:image" content="https://devdany.github.io/img15.png">
+<meta property="og:updated_time" content="2017-12-30T04:27:10.525Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular와 RxJS">
+<meta name="twitter:description" content="Reactive Programming?저번 포스트에서 명확히 정리를 못한것 같아 한번 더 정리하려고 합니다. Reactive Programming(반응형 프로그래밍)은, 비동기 데이터 처리를 위해 Observable Event Stream을 Subscribe하다가, 이 Stream에 애플리케이션이 반응하도록 하는 프로그래밍 방식입니다. 애플리케이션이 외부">
+<meta name="twitter:image" content="https://devdany.github.io/img14.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Dany&#39;s Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info" style="margin-left: 10%">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>010-2290-7387</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span>dayong7387@gmail.com</span></li>
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <!--<a class="site-logo" href="/" id="logo">Dany&#39;s Development</a>-->
+
+        <a class="site-logo " href="/" style="margin-left: 10%">
+            <!--<img src="/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">-->
+            <h1>Logo</h1>
+        </a>
+
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation pull-right font-transform-inherit" style="margin-right: 6%">
+            <ul>
+                
+                <li class="" >
+                    <a href="/">Home</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/projects/">Projects</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/archives/">Blog</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/about/">About</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- END NAVIGATION -->
+    </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb" style="margin-left: 9%">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main" style="margin-left: 9%">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/2017/12/29/2017-12-30-Angular와 RxJS/">Angular와 RxJS</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-2017-12-30-Angular와 RxJS" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> dany</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2017-12-28T15:00:00.000Z" itemprop="datePublished">2017/12/29</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/tags/Angular/" title="Angular">Angular</a>,
+  
+    <a href="/tags/rxjs/" title="rxjs">rxjs</a>,
+  
+    <a href="/tags/reactive-programming/" title="reactive programming">reactive programming</a>,
+  
+    <a href="/tags/async-programming/" title="async programming">async programming</a>,
+  
+    <a href="/tags/함수형-프로그래밍/" title="함수형 프로그래밍">함수형 프로그래밍</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/categories/Front-End/">Front-End</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Reactive-Programming"><a href="#Reactive-Programming" class="headerlink" title="Reactive Programming?"></a>Reactive Programming?</h2><p>저번 포스트에서 명확히 정리를 못한것 같아 한번 더 정리하려고 합니다. Reactive Programming(반응형 프로그래밍)은, 비동기 데이터 처리를 위해 Observable Event Stream을 Subscribe하다가, 이 Stream에 애플리케이션이 반응하도록 하는 프로그래밍 방식입니다.</p>
+<p>애플리케이션이 외부 환경과 함께 동작하는 방법에는 기본적으로 두가지 방식이 있습니다.</p>
+<ol>
+<li><p>기존의 방식으로, 애플리케이션이 외부로 request하고, response가 올때까지 대기하다가, response가 오면 그에 맞게 동작.</p>
+</li>
+<li><p>Reactive Programming 방식으로, 외부에 request를 보내고 <em>대기하지 않고 다른 동작을 하다가</em> response가 오면 그때 반응.</p>
+</li>
+</ol>
+<p>저번 포스트에서 동기 / 비동기 처리를 할때 예시로 들었던 그림 기억하시나요? 그 그림은 카페 점원이 일하는 방식을 예시로 들었는데요. 반대로 카페 주문한 경우 고객의 입장에서 생각해보겠습니다.</p>
+<p>손님이 카페에 주문을 하고 커피가 나올때 까지 기다리고 있다가 커피를 받아가는 경우 1번 방식이라고 할 수 있겠죠.</p>
+<p>하지만 진동벨을 받아가서 스마트폰을 보고 있다가 진동벨이 울리면 주문한 음료를 받아가는 경우 2번 방식이라고 할 수 있겠네요.</p>
+<h2 id="Observable"><a href="#Observable" class="headerlink" title="Observable"></a>Observable</h2><p>외부환경에서 애플리케이션으로 흐르는 데이터 Stream을 처리해줄 인터페이스가 필요하겠죠. 이게 바로 Observable입니다.</p>
+<p>이 Observable은  ES7 스펙으로 제안된 비동기 데이터 처리를 위한 표준이라고 합니다. 그 중, RxJS는 비동기 데이터 Stream을 처리하기 위한 API를 제공하는 라이브러리로서, Angular의 필수 패키지로 채택되어 있습니다.</p>
+<p>정리하면, 아래와 같습니다.</p>
+<ul>
+<li>Reactive Programming은 기본적으로는 모든것을 <em>Stream</em>으로 본다.</li>
+<li>Observable은 이 Stream을 생성하는 객체이다.</li>
+<li>Observer는 이 Stream을 Subscribe하여 사용하는 객체이다.</li>
+</ul>
+<h2 id="Angular에서-RxJS-사용하기"><a href="#Angular에서-RxJS-사용하기" class="headerlink" title="Angular에서 RxJS 사용하기"></a>Angular에서 RxJS 사용하기</h2><p>이미 RxJS에 대한 개념은 충분히 정리한것 같으니, 이제 예제를 만들어 보겠습니다. 배열을 Observable로 Stream으로 만들고, 이 배열의 각 값에 1씩 더한 배열을 만들어 보겠습니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Observable&#125; <span class="keyword">from</span> <span class="string">"rxjs/Observable"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/observable/from'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/map'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;Subscription&#125; <span class="keyword">from</span> <span class="string">"rxjs/Subscription"</span>;</span><br><span class="line"></span><br><span class="line">test() &#123;</span><br><span class="line">    <span class="comment">//스트림 객체 생성</span></span><br><span class="line">    <span class="keyword">const</span> stream = Observable.from(<span class="keyword">this</span>.array);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//스트림 조작</span></span><br><span class="line">    stream</span><br><span class="line">      .map(<span class="function"><span class="params">v</span> =&gt;</span> v+<span class="number">1</span>)</span><br><span class="line">      <span class="comment">//스트림 구독</span></span><br><span class="line">      .subscribe(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(v);</span><br><span class="line">      &#125;, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.error(err);</span><br><span class="line">      &#125;, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'complete'</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//스트림 구독 해지</span></span><br><span class="line">  ngOnDestroy() &#123;</span><br><span class="line">    <span class="keyword">this</span>.subscription.unsubscribe();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>먼저 스트림 객체를 생성하고, 스트림을 조작하고, 구독해서 결과를 얻은 다음, 메모리 누수 방지를 위해 구독을 해지합니다. (ngOnDestroy 메서드에 관해서는, 앵귤러의 라이프사이클에 대해 검색해보시면 금방 이해하실 겁니다!)</p>
+<p>또 이 앵귤러의 RxJS를 활용하기 위해서는 당연히 모듈을 import해야 합니다. 그런데, 위의 import경로를 잘 보시면 경로가 약간 다릅니다.</p>
+<p>Observable, Subscription 처럼 RxJS의 큰단위 모듈은 rxjs 이하에서 바로 export하고 있지만, observable의 생성이나 operator는 add 이하의 경로에서 따로 export하고 있어서, 이렇게 따로 import를 해줘야 합니다.</p>
+<p>다른 IDE에는 이 관련 플러그인도 있는것 같던데.. 인텔리j에는 rxjs관련 플러그인은 따로 못찾았어요..</p>
+<p>조금 귀찮더라도 수동 임포트를 해야겠군요.</p>
+<p>아무튼!</p>
+<p>실행시켜 보면, 이런 결과를 얻을 수 있을겁니다.</p>
+<p><img src="/img14.png" alt="Alt text"></p>
+<p>이 결과를 보시면 <em>스트림</em>데이터가 처리되었음을 이해하실 수 있을 겁니다!</p>
+<h3 id="Promise-vs-RxJS"><a href="#Promise-vs-RxJS" class="headerlink" title="Promise vs RxJS"></a>Promise vs RxJS</h3><p>이제 Promise도 알았고, RxJS도 알았습니다. 근데 이 둘은 뭐가 다른 걸까요? 뭐가 더 좋은걸까요? 이 부분을 한번 고민해봅시다.</p>
+<p>이에 대해서, 이를 정말 잘 표현하고 있는 하나의 표가 있습니다.</p>
+<p><img src="/img15.png" alt="Alt text"></p>
+<p>먼저 이해하기 쉽도록 동기 처리에서 일반적인 오브젝트와 배열을 비교해보겠습니다.</p>
+<p>하나의 함수 오브젝트는 기본적으로 하나의 데이터에 대해서 하나의 처리를 합니다.</p>
+<p>하지만 배열은 연속적인 데이터에 대해서 연속적인 처리를 하죠.</p>
+<p>이제 Promise와 Observable을 비교해 보겠습니다.</p>
+<p>둘다 비동기 처리를 한다는건 이제는 익히 알고계실겁니다. 하지만 Promise는 하나의 데이터씩 처리하고, 이를 체이닝 하는 방식이죠.</p>
+<p>반면에 Observable은 연속적인 데이터를(Stream) 처리합니다.</p>
+<p>때문에 Http 통신과 같은 경우에 적합하다 할 수 있습니다! 그래서 다음 포스팅은 Angular에서 이 RxJS를 활용한 Http 통신 예제를 다뤄보겠습니다!</p>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/29/2017-12-29-리액티브 프로그래밍/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          rxjs를 이해해보자
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/27/2017-12-27-Angular 디렉티브와 템플릿 참조변수와 연산자/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Angular 디렉티브의 활용</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/categories/BlockChain/">BlockChain (5)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/Front-End/">Front-End (7)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/DataBase/">DataBase (1)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/"><i class='fa fa-tags'></i>Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular-Cli/"><i class='fa fa-tags'></i>Angular-Cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethereum/"><i class='fa fa-tags'></i>Ethereum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gas/"><i class='fa fa-tags'></i>Gas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/"><i class='fa fa-tags'></i>MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web3/"><i class='fa fa-tags'></i>Web3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async-programming/"><i class='fa fa-tags'></i>async programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive-programming/"><i class='fa fa-tags'></i>reactive programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/"><i class='fa fa-tags'></i>rxjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/함수형-프로그래밍/"><i class='fa fa-tags'></i>함수형 프로그래밍</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+  <!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>About Me</h2>
+                <p>Web / Server / BlockChain</p>
+            </div>
+            <!-- END BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+
+            </div>
+            <!-- BEGIN BOTTOM CONTACTS -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>Contact</h2>
+                <address class="margin-bottom-40">
+                    Phone: 010-2290-7387<br>
+                    Email: <a href="mailto:dayong7387@gmail.com">dayong7387@gmail.com</a><br>
+                    github: <a href="https://github.com/devdany">&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
+                </address>
+            </div>
+            <!-- END BOTTOM CONTACTS -->
+
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6 padding-top-10" style="margin-left: 8%">
+                &copy; 2017 Dany&#39;s Development
+            </div>
+            <!-- END COPYRIGHT -->
+
+
+
+        </div>
+
+    </div>
+</div>
+<!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/js/wow.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+<script>
+  
+    var disqus_config = function () {
+      this.page.url = 'https://devdany.github.io/2017/12/29/2017-12-30-Angular와 RxJS/';
+    };
+  
+  (function() {  // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//dany.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<script id="dsq-count-scr" src="//dany.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
