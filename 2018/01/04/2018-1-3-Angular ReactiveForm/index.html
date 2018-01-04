@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>SPA와 Routing | Dany&#39;s Development</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="SPASinglePageApplication로, 모던 웹의 패러다임으로 떠오르고 있는 개념입니다. 포인트는 아래와 같습니다.  단일페이지로 구성된다. 배포가 간단하다. 좋은 사용자 경험을 제공할 수 있다.  SPA는 웹 애플리케이션을 구동할때, 처음 한번에 모든 정적 리소스를 서버로부터 가져와 렌더링합니다. 그리고 다시 서버로 리퀘스트를 보내고 페이지를 새">
+<meta name="keywords" content="Angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SPA와 Routing">
+<meta property="og:url" content="https://devdany.github.io/2018/01/04/2018-1-3-Angular ReactiveForm/index.html">
+<meta property="og:site_name" content="Dany&#39;s Development">
+<meta property="og:description" content="SPASinglePageApplication로, 모던 웹의 패러다임으로 떠오르고 있는 개념입니다. 포인트는 아래와 같습니다.  단일페이지로 구성된다. 배포가 간단하다. 좋은 사용자 경험을 제공할 수 있다.  SPA는 웹 애플리케이션을 구동할때, 처음 한번에 모든 정적 리소스를 서버로부터 가져와 렌더링합니다. 그리고 다시 서버로 리퀘스트를 보내고 페이지를 새">
+<meta property="og:updated_time" content="2018-01-04T14:54:34.949Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SPA와 Routing">
+<meta name="twitter:description" content="SPASinglePageApplication로, 모던 웹의 패러다임으로 떠오르고 있는 개념입니다. 포인트는 아래와 같습니다.  단일페이지로 구성된다. 배포가 간단하다. 좋은 사용자 경험을 제공할 수 있다.  SPA는 웹 애플리케이션을 구동할때, 처음 한번에 모든 정적 리소스를 서버로부터 가져와 렌더링합니다. 그리고 다시 서버로 리퀘스트를 보내고 페이지를 새">
+  
+    <link rel="alternative" href="/atom.xml" title="Dany&#39;s Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info" style="margin-left: 10%">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>010-2290-7387</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span>dayong7387@gmail.com</span></li>
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <!--<a class="site-logo" href="/" id="logo">Dany&#39;s Development</a>-->
+
+        <a class="site-logo " href="/" style="margin-left: 10%">
+            <!--<img src="/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">-->
+            <h1>Logo</h1>
+        </a>
+
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation pull-right font-transform-inherit" style="margin-right: 6%">
+            <ul>
+                
+                <li class="" >
+                    <a href="/">Home</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/projects/">Projects</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/archives/">Blog</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/about/">About</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- END NAVIGATION -->
+    </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb" style="margin-left: 9%">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main" style="margin-left: 9%">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/2018/01/04/2018-1-3-Angular ReactiveForm/">SPA와 Routing</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-2018-1-3-Angular ReactiveForm" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> dany</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2018-01-03T15:00:00.000Z" itemprop="datePublished">2018/01/04</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/tags/Angular/" title="Angular">Angular</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/categories/Front-End/">Front-End</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="SPA"><a href="#SPA" class="headerlink" title="SPA"></a>SPA</h2><p>SinglePageApplication로, 모던 웹의 패러다임으로 떠오르고 있는 개념입니다. 포인트는 아래와 같습니다.</p>
+<ol>
+<li>단일페이지로 구성된다.</li>
+<li>배포가 간단하다.</li>
+<li>좋은 사용자 경험을 제공할 수 있다.</li>
+</ol>
+<p>SPA는 웹 애플리케이션을 구동할때, 처음 한번에 모든 정적 리소스를 서버로부터 가져와 렌더링합니다. 그리고 다시 서버로 리퀘스트를 보내고 페이지를 새로고침하지 않고 웹 애플리케이션을 사용하도록 합니다.</p>
+<h2 id="Angular-Routing"><a href="#Angular-Routing" class="headerlink" title="Angular Routing"></a>Angular Routing</h2><p>Angular는 SPA를 위한 프론트 사이드 Router를 제공합니다. Angular는 사용자의 요청 URL을 해석해서, 선언적 방식으로 매핑된 컴포넌트를 연결해줍니다.</p>
+<h3 id="Angular-Router-사용"><a href="#Angular-Router-사용" class="headerlink" title="Angular Router 사용"></a>Angular Router 사용</h3><p>1.선언</p>
+<p>Routes 인터페이스의 배열을 사용하여 요청 URL과 컴포넌트로 만들어진 라우트를 선언한다.</p>
+<p>2.등록</p>
+<p>RouterModule.forRoot 또는 RouterModule.forChild를 호출하여 라우트 구성이 포함된 모듈을 생성하고, 모듈에 등록한다.</p>
+<p>3.뷰의 렌더링 위치 지정</p>
+<p>라우터가 컴포넌트를 렌더링하여 뷰를 표시할 영역인 <router-outlet>을 구현하는 RouterOutlet 디렉티브를 선언하여 컴포넌트 뷰가 렌더링될 위치를 지정한다. RouterOutlet 디렉티브는 컴포넌트에 등록한다.</router-outlet></p>
+<p>4.네비게이션 작성</p>
+<p>RouterLink디렉티브를 사용해서 네비게이션 링크를 작성한다.</p>
+<p>그럼, 예제를 작성해보겠습니다. 적당하게, first, second, third, last 컴포넌트 4개를 만들겠습니다. 그리고 잘못된 요청에 대비한 notFound 컴포넌트도 하나 만들겠습니다.</p>
+<p><code>ng g c first</code></p>
+<p><code>ng g c second</code></p>
+<p><code>ng g c third</code></p>
+<p><code>ng g c last</code></p>
+<p><code>ng g c notFound</code></p>
+<p>그리고 루트모듈에 다음과 Routes 인터페이스의 배열로, URL과 각 컴포넌트를 매핑합니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routes: Routes = [</span><br><span class="line">  &#123;<span class="attr">path</span>: <span class="string">'first'</span>, <span class="attr">component</span>: FirstComponent&#125;,</span><br><span class="line">  &#123;<span class="attr">path</span>: <span class="string">'second'</span>, <span class="attr">component</span>: SecondComponent&#125;,</span><br><span class="line">  &#123;<span class="attr">path</span>: <span class="string">'third'</span>, <span class="attr">component</span>: ThirdComponent&#125;,</span><br><span class="line">  &#123;<span class="attr">path</span>: <span class="string">'last'</span>, <span class="attr">component</span>: LastComponent&#125;,</span><br><span class="line">  &#123;<span class="attr">path</span>: <span class="string">'**'</span>, <span class="attr">component</span>: NotFoundComponent&#125;]</span><br></pre></td></tr></table></figure>
+<p>그리고 이렇게 구성된 Routes를 Router모듈에 등록하고, 이 모듈을 루트모듈에 등록합니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  declarations: [</span><br><span class="line">    AppComponent,</span><br><span class="line">    FirstComponent,</span><br><span class="line">    SecondComponent,</span><br><span class="line">    ThirdComponent,</span><br><span class="line">    LastComponent,</span><br><span class="line">    NotFoundComponent</span><br><span class="line">  ],</span><br><span class="line">  imports: [</span><br><span class="line">    RouterModule.forRoot(routes),</span><br><span class="line">    BrowserModule</span><br><span class="line">  ],</span><br><span class="line">  exports: [RouterModule],</span><br><span class="line">  bootstrap: [AppComponent]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>다음 라우터에 의해 컴포넌트가 렌더릴될 영역을 <code>&lt;router-outlet&gt;</code> 로 지정하고, 네비게이션을 만듭니다. 실행해보면, 정상적으로 각 컴포넌트가 렌더링되는 것을 볼 수 있습니다. 
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>네비게이션<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/first"</span>&gt;</span>first<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/second"</span>&gt;</span>second<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/third"</span>&gt;</span>third<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/last"</span>&gt;</span>last<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/fail"</span>&gt;</span>notFound<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>라우터를 렌더링할 영억<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-outlet</span>&gt;</span><span class="tag">&lt;/<span class="name">router-outlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="RouterLinkActive"><a href="#RouterLinkActive" class="headerlink" title="RouterLinkActive"></a>RouterLinkActive</h3><p>RouterLinkActive 디렉티브를 사용한 요소는, 현재 라우트 상태가 포함된 요소에 css클래스가 적용됩니다. 한번 적용시켜 보겠습니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>네비게이션<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/first"</span> <span class="attr">routerLinkActive</span>=<span class="string">"active"</span>&gt;</span>first<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/second"</span> <span class="attr">routerLinkActive</span>=<span class="string">"active"</span>&gt;</span>second<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/third"</span> <span class="attr">routerLinkActive</span>=<span class="string">"active"</span>&gt;</span>third<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/last"</span> <span class="attr">routerLinkActive</span>=<span class="string">"active"</span>&gt;</span>last<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/fail"</span> <span class="attr">routerLinkActive</span>=<span class="string">"active"</span>&gt;</span>notFound<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>라우터를 렌더링할 영억<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-outlet</span>&gt;</span><span class="tag">&lt;/<span class="name">router-outlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>, <span class="selector-tag">a</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이렇게 하면, /first 에서는 first메뉴만 큰폰트에 빨간 글씨로 나타나는 것을 볼 수 있습니다.</p>
+<h3 id="routerLink-Parameter"><a href="#routerLink-Parameter" class="headerlink" title="routerLink Parameter"></a>routerLink Parameter</h3><p>링크시, 파라미터를 사용해서 다른 컴포넌트로 데이터를 전달할 수도 있습니다.</p>
+<p>먼저, 선언시 파라미터를 이름을 지정합니다.</p>
+<p><code>{path: &#39;last/:num&#39;, component: LastComponent},</code></p>
+<p>이렇게 하면, last/10 이라고 왔을때, num이라는 파라미터 name으로 10이라는 value를 받습니다.</p>
+<p>그리고, 해당 컴포넌트에서 ActivatedRoute를 생성자에 주입받습니다.</p>
+<p>그리고 ngOnInit 에서 이 주입받은 route에서 제공하는 paramMap이라는 메서드를 사용하면, 이 메서드는 옵저버블 오브젝트를 리턴합니다.</p>
+<p>즉, 이 오브젝트를 subscribe 해서 인자로 전달되는 파라미터를 얻을 수 있습니다.</p>
+<p>아래는 이에 대한 간단한 예제코드입니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;ActivatedRoute&#125; <span class="keyword">from</span> <span class="string">"@angular/router"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-last'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./last.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./last.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> LastComponent <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line">  param;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> route: ActivatedRoute</span>) &#123; &#125;</span><br><span class="line">  </span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="keyword">this</span>.route.paramMap.subscribe(<span class="function"><span class="params">params</span> =&gt;</span> <span class="keyword">this</span>.param = params.get(<span class="string">'num'</span>));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>다음이 앵귤러 정리의 마지막 포스트가 될것같습니다. Route의 한층 더 깊은 활용법을 정리하고, 다시 이더리움 관련 포스트를 해보려고 합니다.</p>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/02/2018-1-2-Angular Form/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Angular Form</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/categories/BlockChain/">BlockChain (5)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/Front-End/">Front-End (10)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/DataBase/">DataBase (1)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/"><i class='fa fa-tags'></i>Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular-Cli/"><i class='fa fa-tags'></i>Angular-Cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethereum/"><i class='fa fa-tags'></i>Ethereum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gas/"><i class='fa fa-tags'></i>Gas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/"><i class='fa fa-tags'></i>MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web3/"><i class='fa fa-tags'></i>Web3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async-programming/"><i class='fa fa-tags'></i>async programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive-programming/"><i class='fa fa-tags'></i>reactive programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/"><i class='fa fa-tags'></i>rxjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/함수형-프로그래밍/"><i class='fa fa-tags'></i>함수형 프로그래밍</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+  <!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>About Me</h2>
+                <p>Web / Server / BlockChain</p>
+            </div>
+            <!-- END BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+
+            </div>
+            <!-- BEGIN BOTTOM CONTACTS -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>Contact</h2>
+                <address class="margin-bottom-40">
+                    Phone: 010-2290-7387<br>
+                    Email: <a href="mailto:dayong7387@gmail.com">dayong7387@gmail.com</a><br>
+                    github: <a href="https://github.com/devdany">&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
+                </address>
+            </div>
+            <!-- END BOTTOM CONTACTS -->
+
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6 padding-top-10" style="margin-left: 8%">
+                &copy; 2018 Dany&#39;s Development
+            </div>
+            <!-- END COPYRIGHT -->
+
+
+
+        </div>
+
+    </div>
+</div>
+<!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/js/wow.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+<script>
+  
+    var disqus_config = function () {
+      this.page.url = 'https://devdany.github.io/2018/01/04/2018-1-3-Angular ReactiveForm/';
+    };
+  
+  (function() {  // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//dany.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<script id="dsq-count-scr" src="//dany.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
