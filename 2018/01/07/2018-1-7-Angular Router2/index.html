@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>SPA와 Routing2 | Dany&#39;s Development</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="자식 라우트자식컴포넌트도, 루트 컴포넌트와는 별도로 자신의 을 가질수가 있습니다. 예제로 바로 보는것이 이해가 빠를것 같습니다. 먼저 앞에 했던 4개의 컴포넌트중, first의 자식 컴포넌트를 하나 만들어보겠습니다. ng g c first_children 그리고 모듈의 라우트 선언부를 아래와 같이 수정하겠습니다. 123456789101112const rou">
+<meta name="keywords" content="Angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SPA와 Routing2">
+<meta property="og:url" content="https://devdany.github.io/2018/01/07/2018-1-7-Angular Router2/index.html">
+<meta property="og:site_name" content="Dany&#39;s Development">
+<meta property="og:description" content="자식 라우트자식컴포넌트도, 루트 컴포넌트와는 별도로 자신의 을 가질수가 있습니다. 예제로 바로 보는것이 이해가 빠를것 같습니다. 먼저 앞에 했던 4개의 컴포넌트중, first의 자식 컴포넌트를 하나 만들어보겠습니다. ng g c first_children 그리고 모듈의 라우트 선언부를 아래와 같이 수정하겠습니다. 123456789101112const rou">
+<meta property="og:updated_time" content="2018-01-07T04:51:17.848Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SPA와 Routing2">
+<meta name="twitter:description" content="자식 라우트자식컴포넌트도, 루트 컴포넌트와는 별도로 자신의 을 가질수가 있습니다. 예제로 바로 보는것이 이해가 빠를것 같습니다. 먼저 앞에 했던 4개의 컴포넌트중, first의 자식 컴포넌트를 하나 만들어보겠습니다. ng g c first_children 그리고 모듈의 라우트 선언부를 아래와 같이 수정하겠습니다. 123456789101112const rou">
+  
+    <link rel="alternative" href="/atom.xml" title="Dany&#39;s Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info" style="margin-left: 10%">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>010-2290-7387</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span>dayong7387@gmail.com</span></li>
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <!--<a class="site-logo" href="/" id="logo">Dany&#39;s Development</a>-->
+
+        <a class="site-logo " href="/" style="margin-left: 10%">
+            <!--<img src="/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">-->
+            <h1>Logo</h1>
+        </a>
+
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation pull-right font-transform-inherit" style="margin-right: 6%">
+            <ul>
+                
+                <li class="" >
+                    <a href="/">Home</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/projects/">Projects</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/archives/">Blog</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/about/">About</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- END NAVIGATION -->
+    </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb" style="margin-left: 9%">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main" style="margin-left: 9%">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/2018/01/07/2018-1-7-Angular Router2/">SPA와 Routing2</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-2018-1-7-Angular Router2" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> dany</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2018-01-06T15:00:00.000Z" itemprop="datePublished">2018/01/07</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/tags/Angular/" title="Angular">Angular</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/categories/Front-End/">Front-End</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="자식-라우트"><a href="#자식-라우트" class="headerlink" title="자식 라우트"></a>자식 라우트</h2><p>자식컴포넌트도, 루트 컴포넌트와는 별도로 자신의 <router-outlet>을 가질수가 있습니다.</router-outlet></p>
+<p>예제로 바로 보는것이 이해가 빠를것 같습니다. 먼저 앞에 했던 4개의 컴포넌트중, first의 자식 컴포넌트를 하나 만들어보겠습니다.</p>
+<p><code>ng g c first_children</code></p>
+<p>그리고 모듈의 라우트 선언부를 아래와 같이 수정하겠습니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routes: Routes = [</span><br><span class="line">  &#123; path: <span class="string">'first'</span>,</span><br><span class="line">    component: FirstComponent,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;path: <span class="string">'firstChild'</span>, component: FirstChildrenComponent&#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;path: <span class="string">'second'</span>, component: SecondComponent&#125;,</span><br><span class="line">  &#123;path: <span class="string">'third'</span>, component: ThirdComponent&#125;,</span><br><span class="line">  &#123;path: <span class="string">'last/:num'</span>, component: LastComponent&#125;,</span><br><span class="line">  &#123;path: <span class="string">'**'</span>, component: NotFoundComponent&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>이렇게 직관적으로 자식 라우트를 선언할 수 있습니다.</p>
+<p>그리고 부모컴포넌트에서 아래와같이 <router-outlet> 태그를 사용하고, 선언한 대로 라우터 링크를 주면 됩니다.</router-outlet></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  first 컴포넌트!</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">"/first/firstChild"</span>&gt;</span>자식 컴포넌트 열기<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-outlet</span>&gt;</span><span class="tag">&lt;/<span class="name">router-outlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="라우트-가드"><a href="#라우트-가드" class="headerlink" title="라우트 가드"></a>라우트 가드</h2><p>라우터 가드는 라우터를 사용해서 프론트 단에서 접근을 제어하는 방식입니다. 예를들면, 로그인한 사용자만 게시판의 글 쓰기창을 갈 수 있는것과 같은 것입니다.</p>
+<p>앵귤러는 이를 위한 5가지 인터페이스를 제공하니다.</p>
+<h3 id="canActive"><a href="#canActive" class="headerlink" title="canActive"></a>canActive</h3><p>이것은 라우트를 활성화 할 수 있는지를 결정합니다. 주로, 뷰로의 접근권한을 체크하고 접근을 제어할때 사용합니다.</p>
+<p>이것은 서비스를 만들어 사용하게 되며, 외부에서 주입받아 사용됩니다. 그럼, 예제를 만들어 보겠습니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;CanActivate&#125; <span class="keyword">from</span> <span class="string">"@angular/router"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Injectable</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AuthGuardService <span class="keyword">implements</span> CanActivate&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  canActivate() &#123;</span><br><span class="line">    <span class="keyword">const</span> isAuth = <span class="built_in">Math</span>.random() &lt; <span class="number">0.5</span>;</span><br><span class="line">    isAuth ? <span class="built_in">console</span>.log(<span class="string">'인증 성공'</span>) : <span class="built_in">console</span>.log(<span class="string">'인증 실패'</span>);</span><br><span class="line">    <span class="keyword">return</span> isAuth;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">서비스에서 canActivate 인터페이스를 구현하게 되는데, 이때 canActivate 메서드를 정의해야 합니다.이 메서드는 라우트 활성조건이 갖춰졌는지 불린 값을 리턴합니다.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">여기서는 임의로 랜덤한 불린값을 리턴하도록 했습니다.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">그리고 모듈에서 라우트 선언부에 canActivate를 추가하고, 서비스를 사용할때와 마찬가지로 프로바이더를 추가해줍니다.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>typescript</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes: Routes = [</span><br><span class="line">  &#123; path: <span class="string">'first'</span>,</span><br><span class="line">    component: FirstComponent,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;path: <span class="string">'firstChild'</span>, component: FirstChildrenComponent, canActivate: [AuthGuardService]&#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;path: <span class="string">'second'</span>, component: SecondComponent&#125;,</span><br><span class="line">  &#123;path: <span class="string">'third'</span>, component: ThirdComponent&#125;,</span><br><span class="line">  &#123;path: <span class="string">'last/:num'</span>, component: LastComponent&#125;,</span><br><span class="line">  &#123;path: <span class="string">'**'</span>, component: NotFoundComponent&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  declarations: [</span><br><span class="line">    AppComponent,</span><br><span class="line">    FirstComponent,</span><br><span class="line">    SecondComponent,</span><br><span class="line">    ThirdComponent,</span><br><span class="line">    LastComponent,</span><br><span class="line">    NotFoundComponent,</span><br><span class="line">    FirstChildrenComponent</span><br><span class="line">  ],</span><br><span class="line">  imports: [</span><br><span class="line">    RouterModule.forRoot(routes),</span><br><span class="line">    BrowserModule</span><br><span class="line">  ],</span><br><span class="line">  exports: [RouterModule],</span><br><span class="line">  bootstrap: [AppComponent],</span><br><span class="line">  providers: [AuthGuardService]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>의도한대로 절반의 확률로 인증이 성공하고, firstChild 라우트로 접근할 수 있게 되는 것을 볼 수 있습니다.</p>
+<h3 id="canActivateChild"><a href="#canActivateChild" class="headerlink" title="canActivateChild"></a>canActivateChild</h3><p>canActivateChild 가드는 자식 라우트를 활성화 할 수 있는지를 결정합니다. 사용법은 거의 동일합니다.</p>
+<p>서비스에서 canActivateChild 인터페이스를 구현하고, 마찬가지로 불린값 리턴 메소드 canActivateChild()를 정의합니다.</p>
+<p>그 다음 부모컴포넌트 라우트 선언부에서 이 서비스를 canActivateChild: 요소 배열에 추가해주면 됩니다.</p>
+<p>그 외에 canLoad, canResolve 등이 있습니다만, 사실 자주 사용하지 않기에 따로 정리하지 않겠습니다. 궁금하시다면 앵귤러 라우트에 대해서 구글신님께 물어보심이…</p>
+<p>이렇게, 앵귤러 기본 정리를 마칩니다! 사실 저도 계속 공부하는 중이고, 부족한 점이 많기는 하지만 개인 공부를 위해 정리하는 노트로서의 의미는 굉장히 컸던것 같습니다.</p>
+<p>감사합니다!</p>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/04/2018-1-3-Angular ReactiveForm/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SPA와 Routing</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/categories/BlockChain/">BlockChain (5)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/Front-End/">Front-End (11)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/DataBase/">DataBase (1)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/"><i class='fa fa-tags'></i>Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular-Cli/"><i class='fa fa-tags'></i>Angular-Cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethereum/"><i class='fa fa-tags'></i>Ethereum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gas/"><i class='fa fa-tags'></i>Gas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/"><i class='fa fa-tags'></i>MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web3/"><i class='fa fa-tags'></i>Web3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async-programming/"><i class='fa fa-tags'></i>async programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive-programming/"><i class='fa fa-tags'></i>reactive programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/"><i class='fa fa-tags'></i>rxjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/함수형-프로그래밍/"><i class='fa fa-tags'></i>함수형 프로그래밍</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+  <!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>About Me</h2>
+                <p>Web / Server / BlockChain</p>
+            </div>
+            <!-- END BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+
+            </div>
+            <!-- BEGIN BOTTOM CONTACTS -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>Contact</h2>
+                <address class="margin-bottom-40">
+                    Phone: 010-2290-7387<br>
+                    Email: <a href="mailto:dayong7387@gmail.com">dayong7387@gmail.com</a><br>
+                    github: <a href="https://github.com/devdany">&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
+                </address>
+            </div>
+            <!-- END BOTTOM CONTACTS -->
+
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6 padding-top-10" style="margin-left: 8%">
+                &copy; 2018 Dany&#39;s Development
+            </div>
+            <!-- END COPYRIGHT -->
+
+
+
+        </div>
+
+    </div>
+</div>
+<!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/js/wow.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+<script>
+  
+    var disqus_config = function () {
+      this.page.url = 'https://devdany.github.io/2018/01/07/2018-1-7-Angular Router2/';
+    };
+  
+  (function() {  // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//dany.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<script id="dsq-count-scr" src="//dany.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
