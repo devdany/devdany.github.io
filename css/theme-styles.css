@@ -100,9 +100,12 @@ h5 {
   background-size: cover !important;
   overflow: hidden;
 }
+/*
+
 .flush-with-header {
-  margin-top: -23px;
+  margin-top: -23px; 
 }
+*/
 .row-corporate img {
   height: 500px;
 }
