@@ -456,8 +456,8 @@ body.page-header-fixed {
   font-weight: 400;
 
   margin-right: 67px;
-  padding-top: 22px;
-  padding-bottom: 22px;
+  /*padding-top: 22px;
+  padding-bottom: 22px;*/
 }
 
 .header .mobi-toggler {
