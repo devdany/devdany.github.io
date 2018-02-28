@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>RxJS - 1 Overview | Dany&#39;s Development</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="RxJs 번역 및 정리 시작RxJS는 자바스크립트 비동기 리액티브 프로그래밍에서 좋은 퍼포먼스를 보이며, Angular에서 이를 잘 활용하고 있다고 생각합니다. 그동안은 얕게 사용해왔지만, 한번 공식 문서를 직접(구글 번역기가) 번역하고 정리해보려고 합니다.  또한 다른언어(RxJava 등)에서도 마찬가지이기 때문에, 한번 정리해두는 것이 큰 도움이 될거라">
+<meta name="keywords" content="RxJS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxJS - 1 Overview">
+<meta property="og:url" content="https://devdany.github.io/2018/02/27/2018-2-27-RxJs 번역정리/index.html">
+<meta property="og:site_name" content="Dany&#39;s Development">
+<meta property="og:description" content="RxJs 번역 및 정리 시작RxJS는 자바스크립트 비동기 리액티브 프로그래밍에서 좋은 퍼포먼스를 보이며, Angular에서 이를 잘 활용하고 있다고 생각합니다. 그동안은 얕게 사용해왔지만, 한번 공식 문서를 직접(구글 번역기가) 번역하고 정리해보려고 합니다.  또한 다른언어(RxJava 등)에서도 마찬가지이기 때문에, 한번 정리해두는 것이 큰 도움이 될거라">
+<meta property="og:updated_time" content="2018-02-28T02:29:55.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RxJS - 1 Overview">
+<meta name="twitter:description" content="RxJs 번역 및 정리 시작RxJS는 자바스크립트 비동기 리액티브 프로그래밍에서 좋은 퍼포먼스를 보이며, Angular에서 이를 잘 활용하고 있다고 생각합니다. 그동안은 얕게 사용해왔지만, 한번 공식 문서를 직접(구글 번역기가) 번역하고 정리해보려고 합니다.  또한 다른언어(RxJava 등)에서도 마찬가지이기 때문에, 한번 정리해두는 것이 큰 도움이 될거라">
+  
+    <link rel="alternative" href="/atom.xml" title="Dany&#39;s Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info" style="margin-left: 10%">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>010-2290-7387</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span>dayong7387@gmail.com</span></li>
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <!--<a class="site-logo" href="/" id="logo">Dany&#39;s Development</a>-->
+
+        <a class="site-logo " href="/" style="margin-left: 10%">
+            <img src="/logo.png" alt="logo" style="width:80%;">
+
+        </a>
+
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation pull-right font-transform-inherit" style="margin-right: 6%">
+            <ul>
+                
+                <li class="" >
+                    <a href="/">Home</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/projects/">Projects</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/archives/">Blog</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/about/">About</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- END NAVIGATION -->
+    </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb" style="margin-left: 9%">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main" style="margin-left: 9%">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/2018/02/27/2018-2-27-RxJs 번역정리/">RxJS - 1 Overview</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-2018-2-27-RxJs 번역정리" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> dany</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2018-02-26T15:00:00.000Z" itemprop="datePublished">2018/02/27</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/tags/RxJS/" title="RxJS">RxJS</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="RxJs-번역-및-정리-시작"><a href="#RxJs-번역-및-정리-시작" class="headerlink" title="RxJs 번역 및 정리 시작"></a>RxJs 번역 및 정리 시작</h2><p>RxJS는 자바스크립트 비동기 리액티브 프로그래밍에서 좋은 퍼포먼스를 보이며, Angular에서 이를 잘 활용하고 있다고 생각합니다. 그동안은 얕게 사용해왔지만, 한번 공식 문서를 직접(구글 번역기가) 번역하고 정리해보려고 합니다. 
+또한 다른언어(RxJava 등)에서도 마찬가지이기 때문에, 한번 정리해두는 것이 큰 도움이 될거라 생각합니다. 제가 뭐 영어를 특출나게 하지도 않고 RxJS를 엄청 잘 아는것도 아니지만, 따로 와닿는 정리본이 없으니 어쩌겠어요 ㅋㅋ 직접해야지..
+그럼 시작해보겠습니다! 다 끝낼 수 있길!</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>RxJS는 Observable sequence를 사용하여 비동기 및 이벤트 기반 프로그램을 작성하기위한 라이브러리입니다. 
+코어타입인 Observable과 그 외 타입(Observer, Scheduler, Subject) 그리고 배열과 여러 함수들(map, filter, reduce, every)등에 영향을 받는 연산자를 사용하여 비동기 이벤트를 콜렉션으로 처리할 수 있습니다.</p>
+<p>RxJS의 핵심 개념은 다음과 같습니다.</p>
+<ul>
+<li>Observable : 호출 가능한 미래의 value나 event 콜렉션을 나타냅니다.</li>
+<li>Observer : Observable에 의해 전달 된 value를 listen하는 콜백 콜렉션입니다.</li>
+<li>Subscription : Observable의 실행을 나타내며 주로 실행 취소에 유용합니다.</li>
+<li>Operators : map, filter, concat, flatMap 등과 같은 연산을 사용하여 컬렉션을 다루는 함수형 프로그래밍 스타일을 가능하게하는 순수한 함수입니다.</li>
+<li>Subject : EventEmitter와 동등하며 여러 Observers에 값 또는 이벤트를 멀티 캐스팅하는 유일한 방법입니다.</li>
+<li>Schedulers : 동시실행을 제어하기 위 중앙화된 Dispatcher로, 연산이 e.g. setTimeout or requestAnimationFrame or others 등에서 언제 발생하는지를 구조화할 수 있도록 합니다. </li>
+</ul>
+<h3 id="First-Example"><a href="#First-Example" class="headerlink" title="First Example"></a>First Example</h3><p>보통은 이렇게 이벤트를 등록합니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line">button.addEventListener(<span class="string">'click'</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">'Clicked!'</span>));</span><br></pre></td></tr></table></figure>
+<p>RxJS는 이렇게 Observable을 만듭니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line">Rx.Observable.fromEvent(button, <span class="string">'click'</span>)</span><br><span class="line">  .subscribe(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Clicked!'</span>));</span><br></pre></td></tr></table></figure>
+<p>이 예제대로 Angular에서 간단한 예제코드를 짜보겠습니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;fromEvent&#125; <span class="keyword">from</span> <span class="string">'rxjs/observable/fromEvent'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'dany-root'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./app.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./app.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent <span class="keyword">implements</span> OnInit  &#123;</span><br><span class="line">  title = <span class="string">'dany'</span>;</span><br><span class="line"></span><br><span class="line">  click1() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'bt1 click'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="keyword">const</span> bt2 = <span class="built_in">document</span>.getElementById(<span class="string">'bt2'</span>);</span><br><span class="line">    fromEvent(bt2, <span class="string">'click'</span>)</span><br><span class="line">      .subscribe(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'bt2 event'</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>click1은 앵귤러에서 사용하는 일반적인 이벤트 바인딩입니다. 
+그리고 ngOnInit을 사용해서 bt2 이벤트를 Observable에 추가해줬습니다.</p>
+<h4 id="순수함수"><a href="#순수함수" class="headerlink" title="순수함수"></a>순수함수</h4><p>RxJS는 순수 함수를 사용하여 값을 생성 할 수 있습니다 이것이 RxJS의 큰 강점입니다. 때문에 코드가 직관적이며 오류가 적습니다.</p>
+<p>일반적인 자바스크립트로, 클릭이벤트로 count변수의 값을 1씩 증가시킵니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line">button.addEventListener(<span class="string">'click'</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">`Clicked <span class="subst">$&#123;++count&#125;</span> times`</span>));</span><br></pre></td></tr></table></figure>
+<p>RxJS를 쓰면 이렇게 할 수 있습니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line">Rx.Observable.fromEvent(button, <span class="string">'click'</span>)</span><br><span class="line">  .scan(<span class="function"><span class="params">count</span> =&gt;</span> count + <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">  .subscribe(<span class="function"><span class="params">count</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Clicked <span class="subst">$&#123;count&#125;</span> times`</span>));</span><br></pre></td></tr></table></figure>
+<p>또 앵귤러에서 간단한 예제로 짜보죠. (import 방식이 약간 차이가 있어서 주의할필요가 있네요..)</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;fromEvent&#125; <span class="keyword">from</span> <span class="string">'rxjs/observable/fromEvent'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/scan'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'dany-root'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./app.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./app.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent <span class="keyword">implements</span> OnInit  &#123;</span><br><span class="line">  title = <span class="string">'dany'</span>;</span><br><span class="line"></span><br><span class="line">  click1() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'bt1 click'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="keyword">const</span> bt2 = <span class="built_in">document</span>.getElementById(<span class="string">'bt2'</span>);</span><br><span class="line"></span><br><span class="line">    fromEvent(bt2, <span class="string">'click'</span>)</span><br><span class="line">      .scan(<span class="function">(<span class="params">count: <span class="built_in">number</span></span>) =&gt;</span> count + <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">      .subscribe(<span class="function">(<span class="params">count</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Clicked <span class="subst">$&#123;count&#125;</span> times`</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>scan operator는 배열에서의 reduce operator처럼 동작합니다.</p>
+<h4 id="Flow"><a href="#Flow" class="headerlink" title="Flow"></a>Flow</h4><p>RxJs에는 Observable를 통해 어떻게 이벤트가 흐르도록 할지 제어할 수 있도록 하는 모든 연산자가 있습니다.</p>
+<p>여기 보통의 자바스크립트 예제가 있습니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> rate = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">var</span> lastClick = <span class="built_in">Date</span>.now() - rate;</span><br><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line">button.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Date</span>.now() - lastClick &gt;= rate) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Clicked <span class="subst">$&#123;++count&#125;</span> times`</span>);</span><br><span class="line">    lastClick = <span class="built_in">Date</span>.now();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>다음은 RxJS 예제입니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line">Rx.Observable.fromEvent(button, <span class="string">'click'</span>)</span><br><span class="line">  .throttleTime(<span class="number">1000</span>)</span><br><span class="line">  .scan(<span class="function"><span class="params">count</span> =&gt;</span> count + <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">  .subscribe(<span class="function"><span class="params">count</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Clicked <span class="subst">$&#123;count&#125;</span> times`</span>));</span><br></pre></td></tr></table></figure>
+<p>마지막으로, 앵귤러에서 써본 예제입니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;fromEvent&#125; <span class="keyword">from</span> <span class="string">'rxjs/observable/fromEvent'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/scan'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/throttleTime'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'dany-root'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./app.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./app.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent <span class="keyword">implements</span> OnInit  &#123;</span><br><span class="line">  title = <span class="string">'dany'</span>;</span><br><span class="line"></span><br><span class="line">  click1() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'bt1 click'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="keyword">const</span> bt2 = <span class="built_in">document</span>.getElementById(<span class="string">'bt2'</span>);</span><br><span class="line"></span><br><span class="line">    fromEvent(bt2, <span class="string">'click'</span>)</span><br><span class="line">      .throttleTime(<span class="number">1000</span>)</span><br><span class="line">      .scan(<span class="function">(<span class="params">count: <span class="built_in">number</span></span>) =&gt;</span> count + <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">      .subscribe(<span class="function">(<span class="params">count</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Clicked <span class="subst">$&#123;count&#125;</span> times`</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="values"><a href="#values" class="headerlink" title="values"></a>values</h4><p>RxJS는, Observable을 통해 전달된 값을 변환할 수 있도록 합니다.</p>
+<p>일반 자바스크립트 예제입니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> rate = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">var</span> lastClick = <span class="built_in">Date</span>.now() - rate;</span><br><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line">button.addEventListener(<span class="string">'click'</span>, (event) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Date</span>.now() - lastClick &gt;= rate) &#123;</span><br><span class="line">    count += event.clientX;</span><br><span class="line">    <span class="built_in">console</span>.log(count)</span><br><span class="line">    lastClick = <span class="built_in">Date</span>.now();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>RxJS 예제입니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line">Rx.Observable.fromEvent(button, <span class="string">'click'</span>)</span><br><span class="line">  .throttleTime(<span class="number">1000</span>)</span><br><span class="line">  .map(<span class="function"><span class="params">event</span> =&gt;</span> event.clientX)</span><br><span class="line">  .scan(<span class="function">(<span class="params">count, clientX</span>) =&gt;</span> count + clientX, <span class="number">0</span>)</span><br><span class="line">  .subscribe(<span class="function"><span class="params">count</span> =&gt;</span> <span class="built_in">console</span>.log(count));</span><br></pre></td></tr></table></figure>
+<p>Angular에서 사용해본 예제입니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;fromEvent&#125; <span class="keyword">from</span> <span class="string">'rxjs/observable/fromEvent'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/scan'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/throttleTime'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/map'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'dany-root'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./app.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./app.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent <span class="keyword">implements</span> OnInit  &#123;</span><br><span class="line">  title = <span class="string">'dany'</span>;</span><br><span class="line"></span><br><span class="line">  click1() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'bt1 click'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="keyword">const</span> bt2 = <span class="built_in">document</span>.getElementById(<span class="string">'bt2'</span>);</span><br><span class="line"></span><br><span class="line">    fromEvent(bt2, <span class="string">'click'</span>)</span><br><span class="line">      .throttleTime(<span class="number">1000</span>)</span><br><span class="line">      .map(<span class="function">(<span class="params">event: <span class="built_in">any</span></span>) =&gt;</span> event.clientX)</span><br><span class="line">      .scan(<span class="function">(<span class="params">count: <span class="built_in">number</span></span>) =&gt;</span> count + <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">      .subscribe(<span class="function">(<span class="params">count</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Clicked <span class="subst">$&#123;count&#125;</span> times`</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Observable"><a href="#Observable" class="headerlink" title="Observable"></a>Observable</h3><p>Observable은 여러 multiple values의 lazy push collection입니다.</p>
+<p>아래 코드는 Observable에 1,2,3을 푸쉬하고,subscribe 1초 후에 4를 푸쉬하는 예제입니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observable = Rx.Observable.create(<span class="function"><span class="keyword">function</span> (<span class="params">observer</span>) </span>&#123;</span><br><span class="line">  observer.next(<span class="number">1</span>);</span><br><span class="line">  observer.next(<span class="number">2</span>);</span><br><span class="line">  observer.next(<span class="number">3</span>);</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    observer.next(<span class="number">4</span>);</span><br><span class="line">    observer.complete();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'just before subscribe'</span>);</span><br><span class="line">observable.subscribe(&#123;</span><br><span class="line">  next: <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'got value '</span> + x),</span><br><span class="line">  error: <span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'something wrong occurred: '</span> + err),</span><br><span class="line">  complete: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'done'</span>),</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'just after subscribe'</span>);</span><br></pre></td></tr></table></figure>
+<p>Observable을 호출하고 실행결과를 보려면, 이를 subscribe해야 합니다.</p>
+<p>이 코드를 실행하면, </p>
+<p>just before subscribe
+got value 1
+got value 2
+got value 3
+just after subscribe
+got value 4
+done</p>
+<p>이런 결과값이 나옵니다.</p>
+<h4 id="Pull-vs-Push"><a href="#Pull-vs-Push" class="headerlink" title="Pull vs Push"></a>Pull vs Push</h4><p>Pull과 Push는 데이터 생산자와 데이터 소비자가 어떻게 통신하는지를 나타내는 두가지 다른 프로토콜입니다.</p>
+<p>Pull:</p>
+<p>Pull시스템에서는 데이터 소비자가 데이터 생산자로부터 데이터를 받을 시기를 결정합니다. 데이터 생산자는 언제 데이터가 전달되는지 알지 못합니다.
+모든 자바스크립트 함수는 Pull시스템입니다.</p>
+<p>Push:</p>
+<p>Push시스템에서는 데이터 생산자가 데이터 소비자에게 언제 데이터를 보낼것인지를 결정합니다. 데이터 소비자는 언제 데이터를 받게될지 알지 못합니다.
+오늘날 자바스크립트에서는, Promise가 Push 시스템의 가장 일반적인 형태입니다.</p>
+<p>RxJs는 자바스크립트의 새로운 Push시스템입니다. Observable은 Multiple데이터의 생산자이고, 이 데이터를 데이터 소비자인 Observer에게 Push하죠.</p>
+<h4 id="Observables-as-generalizations-of-functions"><a href="#Observables-as-generalizations-of-functions" class="headerlink" title="Observables as generalizations of functions"></a>Observables as generalizations of functions</h4><p>많은 주장들과 달리, Observable은 EventEmitter같은것도 아니고, Multiple data를 위한 Promise같은것도 아닙니다.
+Observable은 어떤 경우에는(RxJS Subject를 사용해서 멀티캐스팅 되었을때) EventEmitter처럼 동작할 수 있습니다. 그러나 일반적으로는 EventEmitter처럼 작동하지 않습니다.</p>
+<p>예제코드와 함께 보겠습니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello'</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">42</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = foo.call(); <span class="comment">// same as foo()</span></span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br><span class="line"><span class="keyword">var</span> y = foo.call(); <span class="comment">// same as foo()</span></span><br><span class="line"><span class="built_in">console</span>.log(y);</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">이 결과는 예상대로</span></span><br></pre></td></tr></table></figure>
+<p>“Hello”
+42
+“Hello”
+42
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">일것입니다.</span><br><span class="line"></span><br><span class="line">이것을 Observable을 사용하는 코드로 써보겠습니다.</span><br><span class="line"></span><br><span class="line">```javascript <span class="number">1.6</span></span><br><span class="line">var foo = Rx.Observable.<span class="built_in">create</span>(<span class="function"><span class="keyword">function</span> <span class="params">(observer)</span></span> &#123;</span><br><span class="line">  console.<span class="built_in">log</span>(<span class="string">'Hello'</span>);</span><br><span class="line">  observer.<span class="built_in">next</span>(<span class="number">42</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">foo.subscribe(<span class="function"><span class="keyword">function</span> <span class="params">(x)</span></span> &#123;</span><br><span class="line">  console.<span class="built_in">log</span>(x);</span><br><span class="line">&#125;);</span><br><span class="line">foo.subscribe(<span class="function"><span class="keyword">function</span> <span class="params">(y)</span></span> &#123;</span><br><span class="line">  console.<span class="built_in">log</span>(y);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>함수와 Observable은 모두 lazy합니다. 호출되기 전까지는 메모리를 사용하지 않죠. 만약 당신이 함수를 콜하지 않으면 Hello는 출력되지 않고,
+Observable을 subscribe하지 않으면 Hello는 출력되지 않습니다. 그리고 call과 subscribe 독립적인 동작입니다.
+두개의 함수의 콜은 별개의 효과를 일으키고, Observable도 마찬가지죠.
+반면, EventEmitter는 효과를 공유하고, subscriber가 있는지 여부에 상관없이 eager한 실행을 합니다. (Observable은 lazy하고 공유실행이 없죠.)</p>
+<p>그럼 함수와 Observable의 차이는 무엇일까요? 예제로 보겠습니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello'</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">42</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">100</span>; <span class="comment">// dead code. will never happen</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 foo함수를 호출하면 콘솔에 Hello가 찍히고 42를 리턴할 것입니다. 그 뒤에 100을 리턴한다고 코딩하더라도 이건 죽은코드죠. 의미가 없습니다.</p>
+<p>즉, 자바스크립트의 함수는 기본적으로 하나의 값을 리턴할 수 있습니다.</p>
+<p>반면에 Observable은 이렇게 쓰일수 있습니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = Rx.Observable.create(<span class="function"><span class="keyword">function</span> (<span class="params">observer</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello'</span>);</span><br><span class="line">  observer.next(<span class="number">42</span>);</span><br><span class="line">  observer.next(<span class="number">100</span>); <span class="comment">// "return" another value</span></span><br><span class="line">  observer.next(<span class="number">200</span>); <span class="comment">// "return" yet another</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'before'</span>);</span><br><span class="line">foo.subscribe(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after'</span>);</span><br></pre></td></tr></table></figure>
+<p>이렇게 하나의 Observable객체를 호출하고, 이런 결과값을 얻을 수 있게되죠.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"before"</span></span><br><span class="line"><span class="string">"Hello"</span></span><br><span class="line"><span class="number">42</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">200</span></span><br><span class="line"><span class="string">"after"</span></span><br></pre></td></tr></table></figure>
+<p>이것은 동기방식의 결과겠죠.</p>
+<p>하지만 이렇게 비동기 방식으로도 값을 리턴할 수 있습니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = Rx.Observable.create(<span class="function"><span class="keyword">function</span> (<span class="params">observer</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello'</span>);</span><br><span class="line">  observer.next(<span class="number">42</span>);</span><br><span class="line">  observer.next(<span class="number">100</span>);</span><br><span class="line">  observer.next(<span class="number">200</span>);</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    observer.next(<span class="number">300</span>); <span class="comment">// happens asynchronously</span></span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'before'</span>);</span><br><span class="line">foo.subscribe(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after'</span>);</span><br></pre></td></tr></table></figure>
+<p>이 실행결과는</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"before"</span></span><br><span class="line"><span class="string">"Hello"</span></span><br><span class="line"><span class="number">42</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">200</span></span><br><span class="line"><span class="string">"after"</span></span><br><span class="line"><span class="number">300</span></span><br></pre></td></tr></table></figure>
+<p>이렇게 되는거죠.</p>
+<p>정리하면, “함수의 콜은 하나의 결과값을 동기방식으로 리턴해주지만, Observable의 subscribe는 여러개의 값을 동기, 또는 비동기 방식으로 준다.”
+가 되겠습니다.</p>
+<h4 id="Observable-들여다-보기"><a href="#Observable-들여다-보기" class="headerlink" title="Observable 들여다 보기"></a>Observable 들여다 보기</h4><p>Observalbe은 Rx.Observable.create를 사용하거나, 생성 연산자를 사용해서 생성되고, Observer가 subscribe하면,
+Observer에게 next / error / complete 알림을 전달하기 위해 실행되며, 그 실행이 처리됩니다.</p>
+<h5 id="create-Observable"><a href="#create-Observable" class="headerlink" title="create Observable"></a>create Observable</h5><p>Rx.Observable.create는 Observable을 생성하고, subscribe function을 인자로 넘깁니다. 아래는 Observable을 생성하고 매초마다 ‘hi’를 emit하는 예제입니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observable = Rx.Observable.create(<span class="function"><span class="keyword">function</span> <span class="title">subscribe</span>(<span class="params">observer</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> id = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    observer.next(<span class="string">'hi'</span>)</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="subscribe-Observable"><a href="#subscribe-Observable" class="headerlink" title="subscribe Observable"></a>subscribe Observable</h5><p>Observable은 이렇게 subscribe될 수 있습니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">observable.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</span><br></pre></td></tr></table></figure>
+<p>observable.subscribe와, Rx.Observable.create(function subscribe(observer){}) 에서 인자로 넘기는 함수 subscribe의 이름이 같은것은 우연의 일치가 아닙니다.
+라이브러리상에서는 분명 그 둘은 다르지만, 실제 쓰임에서는 개념적으로 동일하다고 볼 수 있습니다.</p>
+<p>이것은 하나의 Observable에 대해 복수의 Observer가 어떻게 subscribe call을 공유하지 않는지 보여줍니다.</p>
+<p>observable.subscribe를 콜할때, Observable.create의 인자로 들어갔던 subscribe function은 해당 Observer에 대해 실행됩니다.</p>
+<p>그래서 observable.subscribe는 해당 옵저버에 대해서만 독립적으로 실행된다고 볼 수 있습니다.</p>
+<p>이것은 addEventListener / removeEventListener와 같은 이벤트 핸들러 API와 크게 다릅니다.</p>
+<p>observable.subscribe를 사용하면, 해당 Observer는 Observable에 리스너로 등록되지는 않습니다.</p>
+<p>Observable은 붙어있는 Observer의 리스트 조차 갖고있지 않습니다.</p>
+<p>subscribe calld은 단순히 Observable 실행을 시작하고, 그 결과값이나 이벤트를 Observer에게 건네주기 위한 방법일 뿐입니다.</p>
+<h5 id="Executing-Observable"><a href="#Executing-Observable" class="headerlink" title="Executing Observable"></a>Executing Observable</h5><p>Observable.create (function subscribe (observer) {…}) 내의 코드는 subscribe하는 각 Observer에 대해서만 발생하는 lazy한 실행인 “Observable 실행”을 나타냅니다.</p>
+<p>그 실행은 동기적 또는 비동기적으로 실행의 여러 결과값을 생성해냅니다. </p>
+<p>Observable Execution이 제공 할 수있는 값은 세 가지 유형이 있습니다.</p>
+<ul>
+<li>Next : number, String, Object등을 전달</li>
+<li>Error : JavaScript Exception을 전달</li>
+<li>Complete: value를 전달하지 않음.</li>
+</ul>
+<p>Next 알림이 가장 중요하며 일반적인 형태인데, 이는 Observer에게 데이터를 전달함을 나타냅니다. Error와 Complete는 Observable실행중 단 한번만 일어납니다.</p>
+<p>아래가 세개의 Observable 알림을 제공하고 complete알림을 제공하 실행의 예입니다.
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observable = Rx.Observable.create(<span class="function"><span class="keyword">function</span> <span class="title">subscribe</span>(<span class="params">observer</span>) </span>&#123;</span><br><span class="line">  observer.next(<span class="number">1</span>);</span><br><span class="line">  observer.next(<span class="number">2</span>);</span><br><span class="line">  observer.next(<span class="number">3</span>);</span><br><span class="line">  observer.complete();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observable = Rx.Observable.create(<span class="function"><span class="keyword">function</span> <span class="title">subscribe</span>(<span class="params">observer</span>) </span>&#123;</span><br><span class="line">  observer.next(<span class="number">1</span>);</span><br><span class="line">  observer.next(<span class="number">2</span>);</span><br><span class="line">  observer.next(<span class="number">3</span>);</span><br><span class="line">  observer.complete();</span><br><span class="line">  observer.next(<span class="number">4</span>); <span class="comment">// Is not delivered because it would violate the contract</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>이 경우, 4번째 알림은 제공되지 않습니다. 이미 complete되었기 때문이죠.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observable = Rx.Observable.create(<span class="function"><span class="keyword">function</span> <span class="title">subscribe</span>(<span class="params">observer</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    observer.next(<span class="number">1</span>);</span><br><span class="line">    observer.next(<span class="number">2</span>);</span><br><span class="line">    observer.next(<span class="number">3</span>);</span><br><span class="line">    observer.complete();</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    observer.error(err); <span class="comment">// delivers an error if it caught one</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>이렇게 예외처리하는 것은 좋은 아이디어라고 할 수 있습니다.</p>
+<h5 id="Disposing-Observable-Executions"><a href="#Disposing-Observable-Executions" class="headerlink" title="Disposing Observable Executions"></a>Disposing Observable Executions</h5><p>Observable Execution은 무한적이고 Observer는 한정 시간에 실행을 중단하려는 것이 일반적이므로 실행을 취소하기위한 API가 필요합니다.</p>
+<p>각 실행은 하나의 옵저버 전용이기 때문에, 옵저버가 값을 받으면 실행을 중지하는 방법이 있어야 계산 능력이나 메모리 리소스가 낭비되지 않습니다.</p>
+<figure class="highlight javascript"><figcaption><span>1.6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observable = Rx.Observable.from([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]);</span><br><span class="line"><span class="keyword">var</span> subscription = observable.subscribe(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x));</span><br><span class="line"><span class="comment">// Later:</span></span><br><span class="line">subscription.unsubscribe();</span><br></pre></td></tr></table></figure>
+<p>당신이 subscribe할때, subscription을 리턴받는데 그 객체의 unsubscription을 콜하면 됩니다.</p>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/07/2018-1-7-Angular Router2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SPA와 Routing2</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/categories/Front-End/">Front-End (11)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/BlockChain/">BlockChain (5)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/DataBase/">DataBase (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/JavaScript/">JavaScript (1)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/"><i class='fa fa-tags'></i>Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular-Cli/"><i class='fa fa-tags'></i>Angular-Cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethereum/"><i class='fa fa-tags'></i>Ethereum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gas/"><i class='fa fa-tags'></i>Gas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/"><i class='fa fa-tags'></i>MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJS/"><i class='fa fa-tags'></i>RxJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web3/"><i class='fa fa-tags'></i>Web3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async-programming/"><i class='fa fa-tags'></i>async programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive-programming/"><i class='fa fa-tags'></i>reactive programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/"><i class='fa fa-tags'></i>rxjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/함수형-프로그래밍/"><i class='fa fa-tags'></i>함수형 프로그래밍</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+  <!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>About Me</h2>
+                <p>Web / Server / BlockChain</p>
+            </div>
+            <!-- END BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+
+            </div>
+            <!-- BEGIN BOTTOM CONTACTS -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>Contact</h2>
+                <address class="margin-bottom-40">
+                    Phone: 010-2290-7387<br>
+                    Email: <a href="mailto:dayong7387@gmail.com">dayong7387@gmail.com</a><br>
+                    github: <a href="https://github.com/devdany">&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
+                </address>
+            </div>
+            <!-- END BOTTOM CONTACTS -->
+
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6 padding-top-10" style="margin-left: 8%">
+                &copy; 2018 Dany&#39;s Development
+            </div>
+            <!-- END COPYRIGHT -->
+
+
+
+        </div>
+
+    </div>
+</div>
+<!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/js/wow.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+<script>
+  
+    var disqus_config = function () {
+      this.page.url = 'https://devdany.github.io/2018/02/27/2018-2-27-RxJs 번역정리/';
+    };
+  
+  (function() {  // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//dany.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<script id="dsq-count-scr" src="//dany.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
