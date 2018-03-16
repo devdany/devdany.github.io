@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>블록체인의 전자서명과 암호화 | Dany&#39;s Development</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="블록체인은 안전하다. 위변조가 불가능하다. 왜?요즘 블록체인에 대한 관심이 높아지면서, 흐릿하게 나마 개념을 아는 사람들이 많아졌습니다. 보통 블록체인에 대해서 물어보면, 해킹이 불가능하고, 위변조가 불가능하고, 뭔가를 체인처럼 연결한다는데.. 정도로들 얘기를 합니다. 그래서 저는 이번 포스트에서는 좀더 명확하게 개념을 이해할 수 있도록 정리하고자 합니다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="블록체인의 전자서명과 암호화">
+<meta property="og:url" content="https://devdany.github.io/2018/02/27/2018-3-16-블록체인의 전자서명과 암호화/index.html">
+<meta property="og:site_name" content="Dany&#39;s Development">
+<meta property="og:description" content="블록체인은 안전하다. 위변조가 불가능하다. 왜?요즘 블록체인에 대한 관심이 높아지면서, 흐릿하게 나마 개념을 아는 사람들이 많아졌습니다. 보통 블록체인에 대해서 물어보면, 해킹이 불가능하고, 위변조가 불가능하고, 뭔가를 체인처럼 연결한다는데.. 정도로들 얘기를 합니다. 그래서 저는 이번 포스트에서는 좀더 명확하게 개념을 이해할 수 있도록 정리하고자 합니다.">
+<meta property="og:image" content="https://devdany.github.io/http://i.imgur.com/tQT0d3D.png">
+<meta property="og:updated_time" content="2018-03-16T00:41:23.677Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="블록체인의 전자서명과 암호화">
+<meta name="twitter:description" content="블록체인은 안전하다. 위변조가 불가능하다. 왜?요즘 블록체인에 대한 관심이 높아지면서, 흐릿하게 나마 개념을 아는 사람들이 많아졌습니다. 보통 블록체인에 대해서 물어보면, 해킹이 불가능하고, 위변조가 불가능하고, 뭔가를 체인처럼 연결한다는데.. 정도로들 얘기를 합니다. 그래서 저는 이번 포스트에서는 좀더 명확하게 개념을 이해할 수 있도록 정리하고자 합니다.">
+<meta name="twitter:image" content="https://devdany.github.io/http://i.imgur.com/tQT0d3D.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Dany&#39;s Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info" style="margin-left: 10%">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>010-2290-7387</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span>dayong7387@gmail.com</span></li>
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <!--<a class="site-logo" href="/" id="logo">Dany&#39;s Development</a>-->
+
+        <a class="site-logo " href="/" style="margin-left: 10%">
+            <img src="/logo.png" alt="logo" style="width:80%;">
+
+        </a>
+
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation pull-right font-transform-inherit" style="margin-right: 6%">
+            <ul>
+                
+                <li class="" >
+                    <a href="/">Home</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/projects/">Projects</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/archives/">Blog</a>
+                </li>
+                
+                <li class="" >
+                    <a href="/about/">About</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- END NAVIGATION -->
+    </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb" style="margin-left: 9%">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main" style="margin-left: 9%">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/2018/02/27/2018-3-16-블록체인의 전자서명과 암호화/">블록체인의 전자서명과 암호화</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-2018-3-16-블록체인의 전자서명과 암호화" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> dany</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2018-02-26T15:00:00.000Z" itemprop="datePublished">2018/02/27</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/categories/BlockChain/">BlockChain</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="블록체인은-안전하다-위변조가-불가능하다-왜"><a href="#블록체인은-안전하다-위변조가-불가능하다-왜" class="headerlink" title="블록체인은 안전하다. 위변조가 불가능하다. 왜?"></a>블록체인은 안전하다. 위변조가 불가능하다. 왜?</h2><p>요즘 블록체인에 대한 관심이 높아지면서, 흐릿하게 나마 개념을 아는 사람들이 많아졌습니다.</p>
+<p>보통 블록체인에 대해서 물어보면, 해킹이 불가능하고, 위변조가 불가능하고, 뭔가를 체인처럼 연결한다는데.. 정도로들 얘기를 합니다.</p>
+<p>그래서 저는 이번 포스트에서는 좀더 명확하게 개념을 이해할 수 있도록 정리하고자 합니다.</p>
+<h2 id="전자서명"><a href="#전자서명" class="headerlink" title="전자서명"></a>전자서명</h2><p>블록체인에서 전자서명이란, 본인을 인증하고 확인하는 시스템입니다.</p>
+<p>예를들어, 철수가 영희에게 일주일전 10000원을 송금했다고 가정하겠습니다. 그 트랜잭션의 내용은 기록에 남아있겠죠.</p>
+<p>그럼 영희는 이 10000원을 다시 누군가에게 송금하는, 즉 이 돈을 사용하는 트랜잭션을 발생시킬 수 있게 될 것입니다.</p>
+<p>이때, 영희가 다른 사람들(노드들)에게 이 트랜잭션을 발행했다는 것을 증명하기 위한 기능이 바로 전자서명입니다.</p>
+<h2 id="방식"><a href="#방식" class="headerlink" title="방식"></a>방식</h2><p>많은 블록체인에서는 계좌 또는 계정을 생성할때 공개키(public key)와 비밀키(private key)라는 것이 생성됩니다.</p>
+<p>공개키는 검증용 키이고, 비밀키는 서명용 키입니다.</p>
+<p>즉, 누구나 이 비밀 키만 알고 있다면 해당 계좌에서 돈을 인출하는 트랜잭션을 정상적으로 발행할 수 있게 되게 때문에, 이 비밀키는 반드시 계좌 소유주만이 안전하게 보관하고 있어야 합니다.</p>
+<p>공개키는 사용자 address를 생성하는데 사용합니다.</p>
+<p>트랜잭션이라는 것은 결국, 블록체인 네트워크에 어떤 데이터 변동을 일으키는 행동인데, (비트코인의 경우 통화이동에 제한될 것이고, 이더리움 등에서는 스마트 컨트랙트 데이터 변동도 포함되겠죠.) 이를 전자주소라는 형태로 구현하게 됩니다.</p>
+<p>어떤 address에서 트랜잭션을 발행할때, 자신의 비밀키를 이용해서 이 내용에 서명합니다.</p>
+<p>그럼 다른 노드는 이 트랜잭션에 대해서 자신의 공개키로 이를 검증합니다. 이를 제대로 이해하기 위해서는 해쉬함수와 암호화, 복호화를 알아야 합니다.</p>
+<h2 id="해쉬함수"><a href="#해쉬함수" class="headerlink" title="해쉬함수"></a>해쉬함수</h2><p>함수는 보통 자판기라고 비유합니다. 해쉬함수라면 해쉬값을 내놓는 자판기겠죠. 해쉬함수는, 어떤 디지털 정보를 해쉬값으로 암호화하는 요약본을 내놓는 함수 입니다.</p>
+<p>타지마할은 굉장히 큰 건물입니다. 만리장성은 그보다 훨씬 크겠죠. 하지만 둘다 사진기로 찍으면 똑같은 크기의 사진 안에 담길겁니다.</p>
+<p>하지만 사진의 내용은 전혀 다르겠죠. 해쉬함수는 이와 같습니다.</p>
+<p>한 문자열의 데이터든, 굉장히 긴 데이터든 일정한 길이의 문자열로 암호화합니다.</p>
+<p>가장 쉬운 예로, 우리가 어떤 사이트에 회원가입을 하게 되면 비밀번호를 지정할것입니다. 이때 사용자의 아이디, 비밀번호 및 개인정보가 서버 데이터베이스에 저장되는데,</p>
+<p>비밀번호와 같이 유출시 큰 문제가 생기는 데이터의 경우에는, 데이터베이스에 그대로 저장하지 않고 이를 해쉬함수와 같이 특정 길이의 문자열로 변환해서 저장합니다.</p>
+<p>그리고 로그인시 입력받은 패스워드를 가지고, 이 데이터베이스에 저장된 값과 이 해쉬 알고리즘에 의해 변환된 것이 맞는지 확인하게 됩니다.</p>
+<h2 id="블록이-어떻게-안전하게-연결될까"><a href="#블록이-어떻게-안전하게-연결될까" class="headerlink" title="블록이 어떻게 안전하게 연결될까"></a>블록이 어떻게 안전하게 연결될까</h2><p>이 해쉬함수는 데이터가 조금이라도, 단 한글자만이라도 변하면 전혀 다른 문자열로 내놓는 다는 특징이 있습니다. 바로 이점이 포인트입니다.</p>
+<p>블록체인에서는 새로운 블록을 만들때 바로 이전 블록의 해쉬값이 새로운 블록 안에 들어갑니다. 그리고 이를 해쉬함수에 넣습니다.</p>
+<p>이렇게 되면 이전 기록은 그대로 해쉬값으로 남아있으면서 만약 이전 기록에 어떤 위변조가 발생하면 그 다음 블록에 쓰인 해쉬값이 이를 알고있기때문에 이게 정상적이지 않은 것을 바로 알 수 있게 됩니다.</p>
+<p>즉, 해쉬값 자체를 변조하지 않는이상 이 체인 시스템은 멋대로 변경할 수 없고, 해쉬값 자체를 변조하는 것 역시 불가능에 가깝다고 볼 수 있기 때문에 누구나 컨택할수 있으면서도 위변조로부터 안전하다 라고 할 수 있는 것입니다.</p>
+<h2 id="암호화와-복호화"><a href="#암호화와-복호화" class="headerlink" title="암호화와 복호화"></a>암호화와 복호화</h2><p>해쉬함수는, 정해진 특정 알고리즘으로 어떤 디지털 데이터를 해쉬화 하기도 하지만, 어떤 키를 가지고 그 키의 값을 통해 해쉬화(암호화)하기도 합니다.</p>
+<p>위에서 블록체인의 전자서명시스템에서는 비밀키로 암호화하고 공개키로 복화한다고 했습니다.</p>
+<p>이제 처음에 언급한 내용을 예를들어 정리하겠습니다.</p>
+<p>영희는 철수에게 다시 10000원을 송금하는 트랜잭션을 발생시키려고 합니다.</p>
+<p>그래서 해당 내용이 담긴 트랜잭션 데이터를 해쉬함수에 넣어 일정한 문자열로 발행하는데 그냥 발행하면, 다른 노드들은 이 트랜잭션이 정말 영희가 일으킨 것인지 장부에 써야하는 내용인지에 동의해주기 힘듭니다.</p>
+<p>철수가 몰래 다시 빼갈려고 영희인척 트랜잭션을 일으켰을 수도 있잖아요.</p>
+<p>그래서 영희는 자신의 비밀키로 이 트랜잭션 데이터의 해쉬값을 한번더 암호화합니다. 이렇게 전자서명된 문서가 완성되었습니다.</p>
+<p>영희는 이 전자서명된 문서를 함께 발행합니다.</p>
+<p>그러면 다른 노드들은 자신의 공개키로 이 전자서명된 문서를 복호화합니다. 그러면 원래 트랜잭션 데이터의 해쉬값이 나와야 합니다.</p>
+<p>이렇게 영희가 발행한 전자서명된 문서와 트랜잭션 데이터의 해쉬값을 비교해서 일치하면 이제 이 트랜잭션은 영희가 발행한게 맞다고 간주합니다.</p>
+<p>결국 블록체인 기술은 이 해쉬화, 암호화, 복호화가 핵심입니다.</p>
+<p>트랜잭션데이터를 특정문자열로 해쉬화하고, 이를 비밀키로 암호화하고, 이 암호화된 문자열을 공개키로 복호화해서 트랜잭샨 데이터의 문자열과 매치시키는것. 하지만 이게 실제 구현은 말처럼 쉽지가 않죠.</p>
+<p><img src="/http://i.imgur.com/tQT0d3D.png" alt="Alt text"></p>
+<p>이 그림을 좀더 이해가 될 것같습니다.</p>
+<p><a href="https://homoefficio.github.io/2017/11/19/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%ED%95%9C-%EB%B2%88%EC%97%90-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0/" target="_blank" rel="noopener">https://homoefficio.github.io/2017/11/19/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%ED%95%9C-%EB%B2%88%EC%97%90-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0/</a></p>
+<p>검색중 아래 링크의 포스트를 찾았는데, 최근 본 내용중 가장 잘 정리하신것 같습니다. 저도 역시 공부가 아직 한참한참 모자른것 같네요.</p>
+<p>위 내용을 참고하시면 보다 더 깊게 이해하실 수 있을것 같습니다.</p>
+<p>감사합니다.</p>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/02/27/2018-2-27-RxJs 번역정리/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          RxJS - 1 Overview
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/07/2018-1-7-Angular Router2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SPA와 Routing2</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/categories/BlockChain/">BlockChain (6)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/Front-End/">Front-End (11)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/DataBase/">DataBase (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/categories/JavaScript/">JavaScript (1)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/"><i class='fa fa-tags'></i>Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular-Cli/"><i class='fa fa-tags'></i>Angular-Cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethereum/"><i class='fa fa-tags'></i>Ethereum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gas/"><i class='fa fa-tags'></i>Gas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/"><i class='fa fa-tags'></i>MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJS/"><i class='fa fa-tags'></i>RxJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web3/"><i class='fa fa-tags'></i>Web3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async-programming/"><i class='fa fa-tags'></i>async programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive-programming/"><i class='fa fa-tags'></i>reactive programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/"><i class='fa fa-tags'></i>rxjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/함수형-프로그래밍/"><i class='fa fa-tags'></i>함수형 프로그래밍</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+  <!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>About Me</h2>
+                <p>Web / Server / BlockChain</p>
+            </div>
+            <!-- END BOTTOM ABOUT BLOCK -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+
+            </div>
+            <!-- BEGIN BOTTOM CONTACTS -->
+            <div class="col-md-4 col-sm-6 pre-footer-col" style="text-align: center">
+                <h2>Contact</h2>
+                <address class="margin-bottom-40">
+                    Phone: 010-2290-7387<br>
+                    Email: <a href="mailto:dayong7387@gmail.com">dayong7387@gmail.com</a><br>
+                    github: <a href="https://github.com/devdany">&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
+                </address>
+            </div>
+            <!-- END BOTTOM CONTACTS -->
+
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6 padding-top-10" style="margin-left: 8%">
+                &copy; 2018 Dany&#39;s Development
+            </div>
+            <!-- END COPYRIGHT -->
+
+
+
+        </div>
+
+    </div>
+</div>
+<!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/js/wow.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+<script>
+  
+    var disqus_config = function () {
+      this.page.url = 'https://devdany.github.io/2018/02/27/2018-3-16-블록체인의 전자서명과 암호화/';
+    };
+  
+  (function() {  // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//dany.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<script id="dsq-count-scr" src="//dany.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
